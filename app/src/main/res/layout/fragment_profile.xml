@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:context=".ui.profile.ProfileFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/profile_header_bloc"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/purple_200"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="@dimen/profile__width"
+            android:layout_height="@dimen/profile_height"
+            android:src="@drawable/_80_1809523_picture_font_awesome_user_icon"
+            android:layout_marginStart="@dimen/marginStart"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="@string/profile_name"
+            android:textSize="@dimen/largeText"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            app:layout_constraintTop_toTopOf="@id/profile_image"
+            app:layout_constraintStart_toEndOf="@id/profile_image"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="@string/profile_status"
+            android:textSize="@dimen/Size10"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/userName"
+            app:layout_constraintStart_toEndOf="@id/profile_image"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/profile_account"
+        android:layout_width="match_parent"
+        android:text="@string/profile_ac"
+        android:layout_height="wrap_content"
+        android:textColor="@color/purple_200"
+        android:textSize="@dimen/largeText"
+        android:textStyle="bold"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        app:layout_constraintTop_toBottomOf="@id/profile_header_bloc">
+    </TextView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/profile_btn_phone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profile_account"
+        style="@style/ProfileButtons">
+
+        <TextView
+            android:id="@+id/profile_phone"
+            app:layout_constraintTop_toTopOf="@+id/profile_btn_phone"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/profile_numbers"
+            style="@style/normalText" />
+
+        <TextView
+            android:id="@+id/profile_label_phone_number"
+            app:layout_constraintTop_toBottomOf="@+id/profile_phone"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/profile_label_phone"
+            style="@style/smallText" />
+        
+        <View
+            app:layout_constraintTop_toBottomOf="@+id/profile_label_phone_number"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/separator" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/profile_btn_login"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profile_btn_phone"
+        style="@style/ProfileButtons">
+
+        <TextView
+            android:id="@+id/profile_login"
+            app:layout_constraintTop_toTopOf="@+id/profile_btn_login"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/profile_user_login"
+            style="@style/normalText" />
+
+        <TextView
+            android:id="@+id/profile_label_login"
+            app:layout_constraintTop_toBottomOf="@+id/profile_login"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/profile_name_text"
+            style="@style/smallText" />
+
+        <View
+            app:layout_constraintTop_toBottomOf="@+id/profile_label_login"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/separator" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/profile_btn_bio"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profile_btn_login"
+        style="@style/ProfileButtons">
+
+        <TextView
+            android:id="@+id/profile_bio"
+            app:layout_constraintTop_toTopOf="@+id/profile_btn_bio"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/profile_bio"
+            style="@style/normalText" />
+
+        <TextView
+            android:id="@+id/profile_label_bio"
+            app:layout_constraintTop_toBottomOf="@+id/profile_bio"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="Напишите о себе"
+            style="@style/smallText" />
+
+        <View
+            app:layout_constraintTop_toBottomOf="@+id/profile_label_bio"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/separator" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_photo"
+        android:layout_width="@dimen/profile_btn_photo_width"
+        android:layout_height="@dimen/profile_btn_photo_height"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:src="@drawable/camera_14117"
+
+
+        app:layout_constraintBottom_toBottomOf="@+id/profile_header_bloc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_header_bloc" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

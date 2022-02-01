@@ -1,0 +1,17 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="profile__width">55dp</dimen>
+    <dimen name="profile_height">55dp</dimen>
+    <dimen name="profile_btn_photo_width">35dp</dimen>
+    <dimen name="profile_btn_photo_height">35dp</dimen>
+    <dimen name="profile_border">2dp</dimen>
+    <dimen name="marginStart">16dp</dimen>
+    <dimen name="largeText">18sp</dimen>
+    <dimen name="Size10">10sp</dimen>
+    <dimen name="profile_radius">4dp</dimen>
+</resources>
