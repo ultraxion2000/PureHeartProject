@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
-        android:orderInCategory="100"
-        app:showAsAction="never" />
+
+    <item android:icon="@drawable/ic_baseline_more_vert_24"
+        android:title=""
+        app:showAsAction="ifRoom">
+    <menu>
+
+
+        <item
+            android:id="@+id/action_settings_name"
+            android:icon="@drawable/ic_baseline_edit_24"
+            android:title="@string/action_settings_name"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/action_settings_exit"
+            android:icon="@drawable/ic_baseline_exit_to_app_24"
+            android:title="@string/action_settings_edit"
+            app:showAsAction="never" />
+    </menu>
+
+        </item>
 </menu>

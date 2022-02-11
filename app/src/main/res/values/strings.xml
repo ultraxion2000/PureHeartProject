@@ -5,7 +5,7 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings_name">Изменить имя</string>
 
     <string name="menu_home">Home</string>
     <string name="menu_profile">Profile</string>
@@ -18,4 +18,12 @@
     <string name="profile_user_login">User Login</string>
     <string name="profile_name_text">Имя пользователя</string>
     <string name="profile_bio">О себе</string>
+    <string name="action_settings_edit">Выход</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cd_register_img">register_img</string>
+    <string name="register_text_enter_code">Введите код</string>
+    <string name="code_sms">Мы отправили SMS с кодом проверки на ваш телефон</string>
+    <string name="register_hint">- - - - - -</string>
+    <string name="register_title_your_phone">Ваш телефон</string>
 </resources>
