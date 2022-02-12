@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.pureheart.R
 import com.example.pureheart.databinding.FragmentHomeBinding
+import com.example.pureheart.utilits.showToast
 
 class HomeFragment : Fragment() {
 
@@ -35,7 +36,7 @@ class HomeFragment : Fragment() {
         homeViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
-        Toast.makeText(context, "Home", Toast.LENGTH_SHORT).show()
+        showToast("Home")
         return root
     }
 

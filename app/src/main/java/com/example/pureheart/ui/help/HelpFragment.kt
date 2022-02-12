@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.pureheart.databinding.FragmentHelpBinding
+import com.example.pureheart.utilits.showToast
 
 
 class HelpFragment : Fragment() {
@@ -34,7 +35,7 @@ class HelpFragment : Fragment() {
        helpViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
-        Toast.makeText(context, "Help", Toast.LENGTH_SHORT).show()
+        showToast("Help")
         return root
     }
 

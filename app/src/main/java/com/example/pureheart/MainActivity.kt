@@ -1,5 +1,6 @@
 package com.example.pureheart
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +10,10 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.pureheart.activities.RegisterActivity
 import com.example.pureheart.databinding.ActivityMainBinding
+import com.example.pureheart.ui.home.HomeFragment
+import com.example.pureheart.ui.register.EnterPhoneNumberFragment
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -23,21 +27,29 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        if(false) {
         setSupportActionBar(binding.appBarMain.toolbar)
+            supportFragmentManager.beginTransaction()
+                .replace(
+                    R.id.nav_host_fragment_content_main,
+                    HomeFragment()
+                ).commit()
+        }else{
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+        }
 
 
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_main)
 
-        //if(false){
+
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_home, R.id.nav_profile, R.id.nav_help), drawerLayout)
-        //}else {
-           // val intent = Intent(this,RegisterActivity::class.java)
-            //startActivity(intent)
-       // }
+
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)

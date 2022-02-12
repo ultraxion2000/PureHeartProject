@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.pureheart.R
 import com.example.pureheart.databinding.ActivityRegisterBinding
-import com.example.pureheart.ui.EnterPhoneNumberFragment
+import com.example.pureheart.ui.register.EnterPhoneNumberFragment
 
 class RegisterActivity : AppCompatActivity() {
 
