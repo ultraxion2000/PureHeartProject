@@ -14,12 +14,19 @@ import com.example.pureheart.activities.RegisterActivity
 import com.example.pureheart.databinding.ActivityMainBinding
 import com.example.pureheart.ui.home.HomeFragment
 import com.example.pureheart.ui.register.EnterPhoneNumberFragment
+import com.example.pureheart.utilits.AUTH
+import com.example.pureheart.utilits.replaceActivity
+import com.example.pureheart.utilits.replaceFragment
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.FirebaseApp
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+    private lateinit var mAuth: FirebaseAuth
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,18 +34,16 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        AUTH = FirebaseAuth.getInstance()
 
-        if(false) {
-        setSupportActionBar(binding.appBarMain.toolbar)
-            supportFragmentManager.beginTransaction()
-                .replace(
-                    R.id.nav_host_fragment_content_main,
-                    HomeFragment()
-                ).commit()
-        }else{
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
+        if (AUTH.currentUser != null) {
+
+        } else {
+            replaceActivity(RegisterActivity())
         }
+
+
+        setSupportActionBar(binding.appBarMain.toolbar)
 
 
         val drawerLayout: DrawerLayout = binding.drawerLayout
@@ -48,23 +53,30 @@ class MainActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_profile, R.id.nav_help), drawerLayout)
+                R.id.nav_home, R.id.nav_profile, R.id.nav_help
+            ), drawerLayout
+        )
 
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
 
+
+
+
         navView.menu.findItem(R.id.nav_logout).setOnMenuItemClickListener { item ->
-            when(item.itemId) {
+            when (item.itemId) {
                 R.id.nav_logout -> {
-                    finishAffinity()
+                    AUTH.signOut()
+                    replaceActivity(RegisterActivity())
                     true
                 }
                 else -> false
             }
         }
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main, menu)

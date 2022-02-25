@@ -14,7 +14,7 @@
         android:id="@+id/profile_header_bloc"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="@color/purple_200"
+        android:background="#CD5C5C"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" >
@@ -59,7 +59,7 @@
         android:layout_width="match_parent"
         android:text="@string/profile_ac"
         android:layout_height="wrap_content"
-        android:textColor="@color/purple_200"
+        android:textColor="#CD5C5C"
         android:textSize="@dimen/largeText"
         android:textStyle="bold"
         android:layout_marginStart="@dimen/activity_horizontal_margin"

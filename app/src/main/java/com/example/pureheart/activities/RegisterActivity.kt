@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.pureheart.R
 import com.example.pureheart.databinding.ActivityRegisterBinding
 import com.example.pureheart.ui.register.EnterPhoneNumberFragment
+import com.example.pureheart.utilits.replaceActivity
+import com.example.pureheart.utilits.replaceFragment
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -12,13 +14,17 @@ class RegisterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
-
-        supportFragmentManager.beginTransaction().replace(R.id.place_holder, EnterPhoneNumberFragment())
-            .commit()
+        binding = ActivityRegisterBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
     }
 
+    override fun onStart() {
+        super.onStart()
+        supportFragmentManager.beginTransaction()
+
+        replaceFragment(EnterPhoneNumberFragment())
+    }
 
 }
 

@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:icon="@drawable/ic_baseline_more_vert_24"
+        android:id="@+id/action_settings"
         android:title=""
         app:showAsAction="ifRoom">
     <menu>
@@ -13,11 +14,7 @@
             android:icon="@drawable/ic_baseline_edit_24"
             android:title="@string/action_settings_name"
             app:showAsAction="never" />
-        <item
-            android:id="@+id/action_settings_exit"
-            android:icon="@drawable/ic_baseline_exit_to_app_24"
-            android:title="@string/action_settings_edit"
-            app:showAsAction="never" />
+
     </menu>
 
         </item>

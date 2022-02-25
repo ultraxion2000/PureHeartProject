@@ -7,23 +7,24 @@
         <item
 
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_baseline_home_24"
-            android:title="Home" />
+            android:icon="@drawable/speech_bubble_with_heart_icon_icons_com_68350"
+            android:title="Чаты" />
         <item
             android:id="@+id/nav_profile"
-            android:icon="@drawable/ic_baseline_account_circle_24"
-            android:title="Profile" />
+            android:icon="@drawable/ui_user_profile_avatar_person_icon_208734"
+            android:title="Профиль" />
         <item
             android:id="@+id/nav_help"
-            android:icon="@drawable/ic_baseline_help_24"
-            android:title="Help" />
+            android:icon="@drawable/lover20_41294"
+            android:title="Помощь" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_logout"
+            android:title="Выход" />
         </group>
     <item android:title="">
         <menu>
-            <item
-            android:id="@+id/nav_logout"
-            android:icon="@drawable/ic_logout"
-            android:title="Log out" />
+
         </menu>
     </item>
 </menu>
