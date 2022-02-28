@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.pureheart.R
 import com.example.pureheart.databinding.ActivityRegisterBinding
 import com.example.pureheart.ui.register.EnterPhoneNumberFragment
+import com.example.pureheart.utilits.initFirebase
 import com.example.pureheart.utilits.replaceActivity
 import com.example.pureheart.utilits.replaceFragment
 
@@ -16,6 +17,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        initFirebase()
 
     }
 

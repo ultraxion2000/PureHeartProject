@@ -27,8 +27,6 @@ class EnterPhoneNumberFragment : Fragment(R.layout.fragment_enter_phone_number) 
     override fun onStart() {
         super.onStart()
 
-        AUTH = FirebaseAuth.getInstance()
-
         mCallback = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             override fun onVerificationCompleted(credential: PhoneAuthCredential) {
                AUTH.signInWithCredential(credential).addOnCompleteListener { task ->

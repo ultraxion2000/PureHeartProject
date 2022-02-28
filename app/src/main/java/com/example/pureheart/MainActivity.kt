@@ -15,6 +15,7 @@ import com.example.pureheart.databinding.ActivityMainBinding
 import com.example.pureheart.ui.home.HomeFragment
 import com.example.pureheart.ui.register.EnterPhoneNumberFragment
 import com.example.pureheart.utilits.AUTH
+import com.example.pureheart.utilits.initFirebase
 import com.example.pureheart.utilits.replaceActivity
 import com.example.pureheart.utilits.replaceFragment
 import com.google.android.material.navigation.NavigationView
@@ -25,7 +26,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
-    private lateinit var mAuth: FirebaseAuth
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        AUTH = FirebaseAuth.getInstance()
+        initFirebase()
 
         if (AUTH.currentUser != null) {
 
@@ -60,8 +60,6 @@ class MainActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
-
 
 
 
