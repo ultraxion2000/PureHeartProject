@@ -7,6 +7,7 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings_name">Изменить имя</string>
 
+    <string name="menu_name">Изменить имя</string>
     <string name="menu_home">Чаты</string>
     <string name="menu_profile">Профиль</string>
     <string name="menu_help">Помощь</string>
@@ -26,4 +27,6 @@
     <string name="code_sms">Мы отправили SMS с кодом проверки на ваш телефон</string>
     <string name="register_hint">- - - - - -</string>
     <string name="register_title_your_phone">Ваш телефон</string>
+    <string name="settings_hint_input_name">Имя</string>
+    <string name="settings_hint_input_surname">Фамилия</string>
 </resources>

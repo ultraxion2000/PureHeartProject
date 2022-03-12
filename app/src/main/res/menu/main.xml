@@ -2,20 +2,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:icon="@drawable/ic_baseline_more_vert_24"
-        android:id="@+id/action_settings"
+    <item
+        android:icon="@drawable/ic_baseline_more_vert_24"
         android:title=""
         app:showAsAction="ifRoom">
-    <menu>
+        <menu>
+    <item
+        android:id="@+id/settings_menu_change_name"
+        android:icon="@drawable/ic_baseline_edit_24"
+        android:title="Изменить имя"/>
+
+        </menu>
+
+    </item>
 
 
-        <item
-            android:id="@+id/action_settings_name"
-            android:icon="@drawable/ic_baseline_edit_24"
-            android:title="@string/action_settings_name"
-            app:showAsAction="never" />
-
-    </menu>
-
-        </item>
 </menu>
+
+

@@ -1,6 +1,5 @@
 package com.example.pureheart
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
@@ -12,15 +11,10 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.pureheart.activities.RegisterActivity
 import com.example.pureheart.databinding.ActivityMainBinding
-import com.example.pureheart.ui.home.HomeFragment
-import com.example.pureheart.ui.register.EnterPhoneNumberFragment
 import com.example.pureheart.utilits.AUTH
 import com.example.pureheart.utilits.initFirebase
 import com.example.pureheart.utilits.replaceActivity
-import com.example.pureheart.utilits.replaceFragment
 import com.google.android.material.navigation.NavigationView
-import com.google.firebase.FirebaseApp
-import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
@@ -70,19 +64,15 @@ class MainActivity : AppCompatActivity() {
                     replaceActivity(RegisterActivity())
                     true
                 }
-                else -> false
+                else ->  super.onOptionsItemSelected(item)
             }
         }
     }
 
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.main, menu)
-        return true
-    }
-
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
 }
