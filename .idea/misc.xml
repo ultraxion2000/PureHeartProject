@@ -83,9 +83,13 @@
         <entry key="..\:/Users/Alexsandr/Desktop/PureHeartProject/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.2703125" />
         <entry key="..\:/Users/Alexsandr/Desktop/PureHeartProject/app/src/main/res/drawable/ripple_effect.xml" value="0.2703125" />
         <entry key="..\:/Users/Alexsandr/Desktop/PureHeartProject/app/src/main/res/drawable/side_nav_bar.xml" value="0.2703125" />
+        <entry key="..\:/Users/Alexsandr/Desktop/PureHeartProject/app/src/main/res/layout/fragment_change_name.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Alexsandr/Desktop/PureHeartProject/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Alexsandr/Desktop/PureHeartProject/app/src/main/res/layout/fragment_profile.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Alexsandr/Desktop/PureHeartProject/app/src/main/res/layout/nav_header_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Alexsandr/Desktop/PureHeartProject/app/src/main/res/menu/activity_main_drawer.xml" value="0.4" />
+        <entry key="..\:/Users/Alexsandr/Desktop/PureHeartProject/app/src/main/res/menu/main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Alexsandr/Desktop/PureHeartProject/app/src/main/res/menu/settings_menu.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>

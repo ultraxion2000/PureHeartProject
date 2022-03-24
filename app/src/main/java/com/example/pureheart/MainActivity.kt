@@ -11,9 +11,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.pureheart.activities.RegisterActivity
 import com.example.pureheart.databinding.ActivityMainBinding
-import com.example.pureheart.utilits.AUTH
-import com.example.pureheart.utilits.initFirebase
-import com.example.pureheart.utilits.replaceActivity
+import com.example.pureheart.models.User
+import com.example.pureheart.utilits.*
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -30,13 +29,14 @@ class MainActivity : AppCompatActivity() {
 
         initFirebase()
 
+
         if (AUTH.currentUser != null) {
 
         } else {
             replaceActivity(RegisterActivity())
         }
 
-
+        initUser()
         setSupportActionBar(binding.appBarMain.toolbar)
 
 
@@ -67,6 +67,13 @@ class MainActivity : AppCompatActivity() {
                 else ->  super.onOptionsItemSelected(item)
             }
         }
+    }
+
+    private fun initUser() {
+        REF_DATABASE_ROOT.child(NODE_USERS).child(UID)
+            .addListenerForSingleValueEvent(AppValueEventListener{
+                USER = it.getValue(User::class.java) ?:User()
+            })
     }
 
 

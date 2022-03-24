@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.pureheart.R
 import com.example.pureheart.databinding.FragmentProfileBinding
 import com.example.pureheart.ui.name.ChangeNameFragment
+import com.example.pureheart.utilits.USER
 import com.example.pureheart.utilits.replaceFragment
 import com.example.pureheart.utilits.showToast
 
@@ -35,8 +36,18 @@ class ProfileFragment : Fragment() {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        initFields()
+
         showToast("Profile")
         return root
+    }
+
+    private fun initFields() {
+        binding.profileBio.text = USER.bio
+        binding.userName.text = USER.fullname
+        binding.profilePhone.text = USER.phone
+        binding.settingsStatus.text = USER.status
+       binding.profileLogin.text = USER.username
     }
 
     override fun onDestroyView() {
@@ -49,10 +60,10 @@ class ProfileFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
+        when (item.itemId) {
             R.id.settings_menu_change_name -> replaceFragment(ChangeNameFragment())
         }
-    return false
+        return false
     }
 }
 

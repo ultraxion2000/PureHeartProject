@@ -3,6 +3,7 @@ package com.example.pureheart.ui.name
 import android.os.Bundle
 import android.view.*
 import android.widget.EditText
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -28,7 +29,13 @@ class ChangeNameFragment : Fragment() {
         _binding = FragmentChangeNameBinding.inflate(inflater, container, false)
 
         val root: View = binding.root
+
+        val fullnameList = USER.fullname.split(" ")
+        binding.settingsInputName?.setText(fullnameList[0])
+        binding.settingsInputSurname?.setText(fullnameList[1])
+
         showToast("Изменить имя")
+
         return root
     }
 
@@ -42,6 +49,7 @@ class ChangeNameFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
         when (item.itemId) {
             R.id.settings_confirm_change -> changeName()
         }
@@ -49,10 +57,14 @@ class ChangeNameFragment : Fragment() {
     }
 
     private fun changeName() {
+
         val registerName = view?.findViewById<EditText>(R.id.settings_input_name)
         val registerSurName = view?.findViewById<EditText>(R.id.settings_input_surname)
+
         val name = registerName?.text.toString()
         val surname = registerSurName?.text.toString()
+
+
         if (name.isEmpty()) {
             showToast("Имя не может быть пустым")
         } else {
@@ -67,5 +79,6 @@ class ChangeNameFragment : Fragment() {
 
                 }
         }
+
     }
 }
