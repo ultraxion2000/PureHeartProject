@@ -109,7 +109,7 @@
             android:id="@+id/profile_login"
             app:layout_constraintTop_toTopOf="@+id/profile_btn_login"
             app:layout_constraintStart_toStartOf="parent"
-            android:text="@string/profile_user_login"
+            tools:text="@string/profile_user_login"
             android:textStyle="bold"
             style="@style/normalText" />
 
@@ -117,7 +117,7 @@
             android:id="@+id/profile_label_login"
             app:layout_constraintTop_toBottomOf="@+id/profile_login"
             app:layout_constraintStart_toStartOf="parent"
-            tools:text="@string/profile_name_text"
+            android:text="@string/profile_name_text"
             style="@style/smallText" />
 
         <View

@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.pureheart.R
 import com.example.pureheart.databinding.FragmentProfileBinding
 import com.example.pureheart.ui.name.ChangeNameFragment
+import com.example.pureheart.ui.name.ChangeUsernameFragment
 import com.example.pureheart.utilits.USER
 import com.example.pureheart.utilits.replaceFragment
 import com.example.pureheart.utilits.showToast
@@ -47,7 +48,8 @@ class ProfileFragment : Fragment() {
         binding.userName.text = USER.fullname
         binding.profilePhone.text = USER.phone
         binding.settingsStatus.text = USER.status
-       binding.profileLogin.text = USER.username
+        binding.profileLogin.text = USER.username
+        binding.profileBtnLogin.setOnClickListener { replaceFragment(ChangeUsernameFragment()) }
     }
 
     override fun onDestroyView() {
