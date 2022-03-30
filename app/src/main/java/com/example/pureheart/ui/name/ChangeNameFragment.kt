@@ -31,8 +31,10 @@ class ChangeNameFragment : Fragment() {
         val root: View = binding.root
 
         val fullnameList = USER.fullname.split(" ")
-        binding.settingsInputName?.setText(fullnameList[0])
-        binding.settingsInputSurname?.setText(fullnameList[1])
+        if(fullnameList.size>1) {
+            binding.settingsInputName.setText(fullnameList[0])
+            binding.settingsInputSurname.setText(fullnameList[1])
+        }else binding.settingsInputName.setText(fullnameList[0])
 
         showToast("Изменить имя")
 
