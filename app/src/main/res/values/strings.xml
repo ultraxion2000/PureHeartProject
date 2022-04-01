@@ -30,4 +30,5 @@
     <string name="settings_hint_input_name">Имя</string>
     <string name="settings_hint_input_surname">Фамилия</string>
     <string name="username">Username</string>
+    <string name="bio">Bio</string>
 </resources>

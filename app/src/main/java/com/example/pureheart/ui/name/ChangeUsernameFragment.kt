@@ -5,7 +5,6 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import com.example.pureheart.MainActivity
 import com.example.pureheart.R
-import com.example.pureheart.databinding.FragmentChangeNameBinding
 import com.example.pureheart.databinding.FragmentChangeUsernameBinding
 import com.example.pureheart.utilits.*
 import java.util.*
@@ -68,7 +67,7 @@ class ChangeUsernameFragment : Fragment() {
     }
 
     private fun changeUsername() {
-        REF_DATABASE_ROOT.child(NODE_USERNAMES).child(mNewUsername).setValue(UID)
+        REF_DATABASE_ROOT.child(NODE_USERNAMES).child(mNewUsername).setValue(CURRENT_UID)
             .addOnCompleteListener {
                 if(it.isSuccessful){
                     updateCurrentUsername()
@@ -77,7 +76,7 @@ class ChangeUsernameFragment : Fragment() {
     }
 
     private fun updateCurrentUsername() {
-        REF_DATABASE_ROOT.child(NODE_USERS).child(UID).child(CHILD_USERNAME)
+        REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID).child(CHILD_USERNAME)
             .setValue(mNewUsername)
             .addOnCompleteListener {
                 if(it.isSuccessful){

@@ -2,10 +2,10 @@
     <!-- Base application theme. -->
     <style name="Theme.PureHeart" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="android:colorControlActivated">#CD5C5C</item>
+        <item name="android:colorControlActivated">#E52B50</item>
         <item name = "android:colorBackground">@color/white</item>
-        <item name="colorPrimary">#CD5C5C</item>
-        <item name="colorPrimaryVariant">#CD5C5C</item>
+        <item name="colorPrimary">#F38181</item>
+        <item name="colorPrimaryVariant">#EF3038</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>

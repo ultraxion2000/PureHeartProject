@@ -1,7 +1,8 @@
 package com.example.pureheart
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -14,6 +15,8 @@ import com.example.pureheart.databinding.ActivityMainBinding
 import com.example.pureheart.models.User
 import com.example.pureheart.utilits.*
 import com.google.android.material.navigation.NavigationView
+import com.squareup.picasso.Picasso
+import com.theartofdev.edmodo.cropper.CropImage
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        APP_ACTIVITY = this
         initFirebase()
 
 
@@ -64,15 +67,15 @@ class MainActivity : AppCompatActivity() {
                     replaceActivity(RegisterActivity())
                     true
                 }
-                else ->  super.onOptionsItemSelected(item)
+                else -> super.onOptionsItemSelected(item)
             }
         }
     }
 
     private fun initUser() {
-        REF_DATABASE_ROOT.child(NODE_USERS).child(UID)
-            .addListenerForSingleValueEvent(AppValueEventListener{
-                USER = it.getValue(User::class.java) ?:User()
+        REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID)
+            .addListenerForSingleValueEvent(AppValueEventListener {
+                USER = it.getValue(User::class.java) ?: User()
             })
     }
 
@@ -82,4 +85,13 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
+    override fun onStart() {
+        super.onStart()
+        AppStates.updateState(AppStates.ONLINE)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        AppStates.updateState(AppStates.OFFLINE)
+    }
 }

@@ -3,10 +3,7 @@ package com.example.pureheart.ui.name
 import android.os.Bundle
 import android.view.*
 import android.widget.EditText
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.example.pureheart.MainActivity
 import com.example.pureheart.R
 import com.example.pureheart.databinding.FragmentChangeNameBinding
@@ -71,7 +68,7 @@ class ChangeNameFragment : Fragment() {
             showToast("Имя не может быть пустым")
         } else {
             val fullname = "$name $surname"
-            REF_DATABASE_ROOT.child(NODE_USERS).child(UID).child(CHILD_FULLNAME)
+            REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID).child(CHILD_FULLNAME)
                 .setValue(fullname).addOnCompleteListener {
                     if (it.isSuccessful) {
                         showToast("Данные обновлены")

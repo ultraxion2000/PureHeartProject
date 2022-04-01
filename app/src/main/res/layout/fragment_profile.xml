@@ -14,7 +14,7 @@
         android:id="@+id/profile_header_bloc"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="#CD5C5C"
+        android:background="#F38181"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -23,8 +23,8 @@
             android:id="@+id/profile_image"
             android:layout_width="@dimen/profile__width"
             android:layout_height="@dimen/profile_height"
-            android:layout_marginStart="@dimen/marginStart"
-            android:src="@drawable/_80_1809523_picture_font_awesome_user_icon"
+            android:layout_marginStart="32dp"
+            android:src="@drawable/user_person_customer_man_1532"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -58,9 +58,7 @@
             android:id="@+id/profile_photo"
             android:layout_width="27dp"
             android:layout_height="29dp"
-
-
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
             android:layout_marginBottom="8dp"
             android:src="@drawable/camera_14117"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -74,7 +72,7 @@
         android:layout_width="match_parent"
         android:text="@string/profile_ac"
         android:layout_height="wrap_content"
-        android:textColor="#CD5C5C"
+        android:textColor="#EF3038"
         android:textSize="@dimen/largeText"
         android:textStyle="bold"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
@@ -91,11 +89,12 @@
 
         <TextView
             android:id="@+id/profile_phone"
-            app:layout_constraintTop_toTopOf="@+id/profile_btn_phone"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="@string/profile_numbers"
+            style="@style/normalText"
+            android:textSize="12sp"
             android:textStyle="bold"
-            style="@style/normalText" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/profile_btn_phone"
+            tools:text="@string/profile_numbers" />
 
         <TextView
             android:id="@+id/profile_label_phone_number"
@@ -103,7 +102,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:text="@string/profile_label_phone"
             style="@style/smallText" />
-        
+
         <View
             app:layout_constraintTop_toBottomOf="@+id/profile_label_phone_number"
             app:layout_constraintStart_toStartOf="parent"
@@ -121,11 +120,12 @@
 
         <TextView
             android:id="@+id/profile_login"
-            app:layout_constraintTop_toTopOf="@+id/profile_btn_login"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="@string/profile_user_login"
+            style="@style/normalText"
+            android:textSize="12sp"
             android:textStyle="bold"
-            style="@style/normalText" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/profile_btn_login"
+            tools:text="@string/profile_user_login" />
 
         <TextView
             android:id="@+id/profile_label_login"
@@ -151,11 +151,12 @@
 
         <TextView
             android:id="@+id/profile_bio"
-            app:layout_constraintTop_toTopOf="@+id/profile_btn_bio"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="@string/profile_bio"
+            style="@style/normalText"
+            android:textSize="12sp"
             android:textStyle="bold"
-            style="@style/normalText" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/profile_btn_bio"
+            tools:text="@string/profile_bio" />
 
         <TextView
             android:id="@+id/profile_label_bio"
