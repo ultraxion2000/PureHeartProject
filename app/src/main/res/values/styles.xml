@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<style name="AppTheme">
+    <item name="colorPrimary">@color/purple_200</item>
+    <item name="colorPrimaryDark">@color/purple_500</item>
+    <item name="colorAccent">@color/purple_700</item>
 
-
+</style>
     <style name="ProfileButtons">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_marginTop">@dimen/activity_vertical_margin</item>

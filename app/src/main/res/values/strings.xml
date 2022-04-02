@@ -8,12 +8,13 @@
     <string name="action_settings_name">Изменить имя</string>
 
     <string name="menu_name">Изменить имя</string>
+    <string name="menu_code">Введите код</string>
     <string name="menu_home">Чаты</string>
     <string name="menu_profile">Профиль</string>
     <string name="menu_help">Помощь</string>
     <string name="profile_name">User</string>
     <string name="profile_status">В сети</string>
-    <string name="profile_ac">Аккаунт</string>
+    <string name="profile_ac">Данные</string>
     <string name="profile_numbers">+79111111111</string>
     <string name="profile_label_phone">Нажмите,чтобы изменить номер телефона</string>
     <string name="profile_user_login">User Login</string>
@@ -31,4 +32,8 @@
     <string name="settings_hint_input_surname">Фамилия</string>
     <string name="username">Username</string>
     <string name="bio">Bio</string>
+    <string name="code">Code</string>
+    <string name="Nomer">Введите идентификационный номер</string>
+    <string name="Индентификация">Индентификационный код волонтера</string>
+    <string name="Волонтер">Status</string>
 </resources>

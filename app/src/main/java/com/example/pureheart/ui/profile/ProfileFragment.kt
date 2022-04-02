@@ -10,6 +10,7 @@ import com.example.pureheart.MainActivity
 import com.example.pureheart.R
 import com.example.pureheart.databinding.FragmentProfileBinding
 import com.example.pureheart.ui.bio.ChangeBioFragment
+import com.example.pureheart.ui.code.CodeFragment
 import com.example.pureheart.ui.name.ChangeNameFragment
 import com.example.pureheart.ui.name.ChangeUsernameFragment
 import com.example.pureheart.utilits.*
@@ -51,6 +52,8 @@ class ProfileFragment : Fragment() {
         binding.profilePhone.text = USER.phone
         binding.settingsStatus.text = USER.state
         binding.profileLogin.text = USER.username
+        binding.profileCode.text =  USER.code
+
         binding.profileBtnLogin.setOnClickListener { replaceFragment(ChangeUsernameFragment()) }
         binding.profileBtnBio.setOnClickListener { replaceFragment(ChangeBioFragment()) }
         binding.profilePhoto.setOnClickListener { changePhotoUser() }
@@ -78,6 +81,7 @@ class ProfileFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.settings_menu_change_name -> replaceFragment(ChangeNameFragment())
+            R.id.settings_menu_change_code -> replaceFragment(CodeFragment())
         }
         return false
     }

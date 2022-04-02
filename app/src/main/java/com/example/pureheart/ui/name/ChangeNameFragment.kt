@@ -57,12 +57,8 @@ class ChangeNameFragment : Fragment() {
 
     private fun changeName() {
 
-        val registerName = view?.findViewById<EditText>(R.id.settings_input_name)
-        val registerSurName = view?.findViewById<EditText>(R.id.settings_input_surname)
-
-        val name = registerName?.text.toString()
-        val surname = registerSurName?.text.toString()
-
+        val name = binding.settingsInputName.text.toString()
+        val surname = binding.settingsInputSurname.text.toString()
 
         if (name.isEmpty()) {
             showToast("Имя не может быть пустым")

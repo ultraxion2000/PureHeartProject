@@ -42,6 +42,8 @@
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/drawable/ic_baseline_arrow_circle_right_24.xml" value="0.2703125" />
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.1545" />
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.2703125" />
+        <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/drawable/ic_baseline_exit_to_app_24.xml" value="0.243" />
+        <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/drawable/ic_baseline_fact_check_24.xml" value="0.1" />
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/drawable/ic_baseline_navigate_next_24.xml" value="0.2703125" />
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/drawable/ic_logout.xml" value="0.2703125" />
@@ -58,6 +60,7 @@
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/layout/fragment_change_name2.xml" value="0.16983695652173914" />
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/layout/fragment_change_name_view_model.xml" value="0.16983695652173914" />
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/layout/fragment_change_username.xml" value="0.25416666666666665" />
+        <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/layout/fragment_code.xml" value="0.4" />
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/layout/fragment_enter_code.xml" value="0.264" />
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/layout/fragment_enter_phone_number.xml" value="0.25416666666666665" />
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/layout/fragment_help.xml" value="0.25416666666666665" />
@@ -67,7 +70,7 @@
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/layout/nav_header_main.xml" value="0.264" />
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/menu/activity_main_drawer.xml" value="0.4" />
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/menu/icone.xml" value="0.21203703703703702" />
-        <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/menu/main.xml" value="0.25416666666666665" />
+        <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/menu/main.xml" value="0.1" />
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/menu/settings_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.131" />
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.243" />
