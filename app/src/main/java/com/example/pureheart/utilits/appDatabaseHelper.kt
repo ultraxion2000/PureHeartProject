@@ -37,3 +37,4 @@ fun initFirebase(){
     CURRENT_UID = AUTH.currentUser?.uid.toString()
     REF_STORAGE_ROOT = FirebaseStorage.getInstance().reference
 }
+

@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.pureheart.R
 import com.example.pureheart.ui.home.HomeFragment
+import com.squareup.picasso.Picasso
+import de.hdodenhof.circleimageview.CircleImageView
 
 fun Fragment.showToast(message: String) {
     Toast.makeText(this.context, message, Toast.LENGTH_SHORT).show()
@@ -33,4 +35,11 @@ fun Fragment.replaceFragment(fragment: Fragment){
             R.id.nav_host_fragment_content_main,
             fragment
         )?.commit()
+}
+
+fun CircleImageView.donwloadAndSetImage(url:String){
+    Picasso.get()
+        .load(url)
+        .placeholder(R.drawable.user_person_customer_man_1532)
+        .into(this)
 }

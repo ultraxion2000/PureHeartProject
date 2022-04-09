@@ -2,6 +2,7 @@ package com.example.pureheart.ui.profile
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -14,6 +15,7 @@ import com.example.pureheart.ui.code.CodeFragment
 import com.example.pureheart.ui.name.ChangeNameFragment
 import com.example.pureheart.ui.name.ChangeUsernameFragment
 import com.example.pureheart.utilits.*
+import com.google.firebase.storage.StorageReference
 import com.squareup.picasso.Picasso
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
@@ -57,6 +59,8 @@ class ProfileFragment : Fragment() {
         binding.profileBtnLogin.setOnClickListener { replaceFragment(ChangeUsernameFragment()) }
         binding.profileBtnBio.setOnClickListener { replaceFragment(ChangeBioFragment()) }
         binding.profilePhoto.setOnClickListener { changePhotoUser() }
+        binding.profileImage.donwloadAndSetImage(USER.photoUrl)
+
     }
 
     private fun changePhotoUser() {
@@ -92,28 +96,36 @@ class ProfileFragment : Fragment() {
             val uri = CropImage.getActivityResult(data).uri
             val path = REF_STORAGE_ROOT.child(FOLDER_PROFILE_IMAGE)
                 .child(CURRENT_UID)
-            path.putFile(uri).addOnCompleteListener { task1 ->
-                if (task1.isSuccessful) {
-                    path.downloadUrl.addOnCompleteListener { task2 ->
-                        if (task2.isSuccessful) {
-                            val photoUrl = task2.result.toString()
-                            REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID)
-                                .child(CHILD_PHOTO_URL).setValue(photoUrl)
-                                .addOnCompleteListener {
-                                    if (it.isSuccessful) {
-                                        Picasso.get()
-                                            .load(photoUrl)
-                                            .placeholder(R.drawable._80_1809523_picture_font_awesome_user_icon)
-                                            .into(binding.profileImage)
-                                        showToast("Данные обновлены")
-                                        USER.photoUrl = photoUrl
-                                    }
-                                }
-                        }
-                    }
-                }
-            }
+
+          putImageToStorage(uri, path){
+              getUrlFromStorage(path){
+                  putUrlToDatabase(it){
+                    binding.profileImage.donwloadAndSetImage(it)
+                          showToast("Данные обновлены")
+                          USER.photoUrl = it
+                  }
+              }
+          }
         }
+    }
+
+    private fun putUrlToDatabase(url: String, function: () -> Unit) {
+        REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID)
+        .child(CHILD_PHOTO_URL).setValue(url)
+            .addOnSuccessListener { function() }
+            .addOnFailureListener{showToast(it.message.toString())}
+    }
+
+    private fun getUrlFromStorage(path: StorageReference, function: (url:String) -> Unit) {
+        path.downloadUrl
+            .addOnSuccessListener { function(it.toString()) }
+            .addOnFailureListener{showToast(it.message.toString())}
+    }
+
+    private fun putImageToStorage(uri: Uri, path: StorageReference, function: () -> Unit) {
+        path.putFile(uri)
+            .addOnSuccessListener { function() }
+            .addOnFailureListener{showToast(it.message.toString())}
     }
 
 }
