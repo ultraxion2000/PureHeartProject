@@ -1,5 +1,8 @@
 package com.example.pureheart.utilits
 
+import android.annotation.SuppressLint
+import android.provider.ContactsContract
+import com.example.pureheart.models.CommonModel
 import com.example.pureheart.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -38,3 +41,27 @@ fun initFirebase(){
     REF_STORAGE_ROOT = FirebaseStorage.getInstance().reference
 }
 
+ @SuppressLint("Range")
+ fun initContacts() {
+    if (checkPermission(READ_CONTACTS)) {
+        var arrayContacts = arrayListOf<CommonModel>()
+        val cursor = APP_ACTIVITY.contentResolver.query(
+            ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+            null,
+            null,
+            null,
+            null
+        )
+        cursor?.let {
+            while (it.moveToNext()){
+                val fullName = it.getString(it.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME))
+                val phone = it.getString(it.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER))
+                val newModel = CommonModel()
+                newModel.fullname = fullName
+                newModel.phone = phone.replace(Regex("[\\s,-]"),"")
+                arrayContacts.add(newModel)
+            }
+        }
+        cursor?.close()
+    }
+}
