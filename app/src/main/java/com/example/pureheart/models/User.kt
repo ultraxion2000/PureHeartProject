@@ -9,4 +9,5 @@ data class User(
     var phone: String = "",
     var photoUrl: String = "empty",
     var code: String = "---",
+    var status: String = "Пользователь"
 )

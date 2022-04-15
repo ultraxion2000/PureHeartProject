@@ -29,17 +29,29 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
+        <TextView
+            android:id="@+id/userSt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/profile_image"
+            app:layout_constraintTop_toTopOf="@id/profile_image"
+            tools:text="Пользователь" />
+
         <TextView
             android:id="@+id/userName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
             android:textColor="@color/white"
             android:textSize="@dimen/largeText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/profile_image"
-            app:layout_constraintTop_toTopOf="@id/profile_image"
+            app:layout_constraintTop_toBottomOf="@id/userSt"
             tools:text="@string/profile_name" />
 
         <TextView
@@ -73,7 +85,7 @@
         android:layout_width="match_parent"
         android:text="@string/profile_ac"
         android:layout_height="wrap_content"
-        android:textColor="@color/purple_200"
+        android:textColor="@color/purple_100"
         android:textSize="@dimen/largeText"
         android:textStyle="bold"
         android:layout_marginStart="@dimen/activity_horizontal_margin"

@@ -32,7 +32,6 @@ class CodeFragment : Fragment() {
         binding.inputCode.setText(USER.code)
 
 
-
         return root
     }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -51,11 +50,14 @@ class CodeFragment : Fragment() {
 
     private fun change() {
         val newCode = binding.inputCode.text.toString()
+        val newStatus = binding.userStatus.text.toString()
+        REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID).child(CHILD_STATUS).setValue(newStatus)
         REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID).child(CHILD_CODE).setValue(newCode)
             .addOnCompleteListener {
                 if(it.isSuccessful){
                     showToast("Данные обновлены")
                     USER.code = newCode
+                    USER.status = newStatus
                     fragmentManager?.popBackStack()
                 }
             }

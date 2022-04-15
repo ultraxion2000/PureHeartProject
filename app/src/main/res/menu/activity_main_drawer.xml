@@ -17,14 +17,14 @@
             android:id="@+id/nav_help"
             android:icon="@drawable/lover20_41294"
             android:title="Помощь" />
+        <item
+            android:id="@+id/nav_vol"
+            android:icon="@drawable/heart_icon_icons_com_66046"
+            android:title="Волонтеры" />
 
         </group>
     <item android:title="Configuration">
         <menu>
-            <item
-                android:id="@+id/nav_settings"
-                android:icon="@drawable/heart_icon_icons_com_66046"
-                android:title="Волонтеры" />
             <item
                 android:id="@+id/nav_logout"
                 android:icon="@drawable/ic_logout"

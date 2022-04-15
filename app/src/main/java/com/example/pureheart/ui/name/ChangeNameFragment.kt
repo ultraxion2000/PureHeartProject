@@ -56,7 +56,6 @@ class ChangeNameFragment : Fragment() {
     }
 
     private fun changeName() {
-
         val name = binding.settingsInputName.text.toString()
         val surname = binding.settingsInputSurname.text.toString()
 

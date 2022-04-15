@@ -7,6 +7,7 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings_name">Изменить имя</string>
 
+    <string name="menu_vol">Волонтеры</string>
     <string name="menu_name">Изменить имя</string>
     <string name="menu_code">Введите код</string>
     <string name="menu_home">Чаты</string>
@@ -16,7 +17,7 @@
     <string name="profile_status">В сети</string>
     <string name="profile_ac">Данные</string>
     <string name="profile_numbers">+79111111111</string>
-    <string name="profile_label_phone">Нажмите,чтобы изменить номер телефона</string>
+    <string name="profile_label_phone">Ваш номер телефона</string>
     <string name="profile_user_login">User Login</string>
     <string name="profile_name_text">Имя пользователя</string>
     <string name="profile_bio">О себе</string>

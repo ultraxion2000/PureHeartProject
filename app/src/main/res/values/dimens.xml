@@ -12,7 +12,7 @@
     <dimen name="profile_btn_photo_height">35dp</dimen>
     <dimen name="profile_border">2dp</dimen>
     <dimen name="marginStart">16dp</dimen>
-    <dimen name="largeText">18sp</dimen>
+    <dimen name="largeText">15sp</dimen>
     <dimen name="Size10">10sp</dimen>
     <dimen name="profile_radius">4dp</dimen>
     <dimen name="appPadding">5dp</dimen>

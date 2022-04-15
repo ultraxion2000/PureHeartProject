@@ -55,6 +55,7 @@ class ProfileFragment : Fragment() {
         binding.settingsStatus.text = USER.state
         binding.profileLogin.text = USER.username
         binding.profileCode.text =  USER.code
+        binding.userSt.text = USER.status
 
         binding.profileBtnLogin.setOnClickListener { replaceFragment(ChangeUsernameFragment()) }
         binding.profileBtnBio.setOnClickListener { replaceFragment(ChangeBioFragment()) }

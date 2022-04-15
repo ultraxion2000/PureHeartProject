@@ -27,4 +27,9 @@
         android:name="com.example.pureheart.ui.name.ChangeNameFragment"
         android:label="@string/menu_name"
         tools:layout="@layout/fragment_change_name" />
+    <fragment
+        android:id="@+id/nav_vol"
+        android:name="com.example.pureheart.ui.VolonteerFragment"
+        android:label="@string/menu_vol"
+        tools:layout="@layout/fragment_volonteer" />
 </navigation>
