@@ -8,13 +8,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pureheart.R
-import com.example.pureheart.databinding.FragmentHomeBinding
 import com.example.pureheart.databinding.FragmentVolonteerBinding
 import com.example.pureheart.models.CommonModel
 import com.example.pureheart.utilits.*
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
-import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseReference
 import de.hdodenhof.circleimageview.CircleImageView
 
@@ -70,6 +68,7 @@ class VolonteerFragment : Fragment() {
                     holder.name.text = contact.fullname
                     holder.status.text = contact.state
                     holder.photo.donwloadAndSetImage(contact.photoUrl)
+                    holder.itemView.setOnClickListener{replaceFragment(SingleChatFragment(contact))}
                 }
 
                 mRefUsers.addValueEventListener(mRefUsersListener)

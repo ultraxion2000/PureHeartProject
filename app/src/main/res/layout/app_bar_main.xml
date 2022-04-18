@@ -13,8 +13,9 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
-            app:popupTheme="@style/Theme.PureHeart.PopupOverlay"
-            style="@style/TollBar" />
+            style="@style/TollBar"
+            app:popupTheme="@style/Theme.PureHeart.PopupOverlay" />
+
 
     </com.google.android.material.appbar.AppBarLayout>
 
