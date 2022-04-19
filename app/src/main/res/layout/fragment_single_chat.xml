@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/toolbar_image"
+            android:id="@+id/toolbar_chat_image"
             android:layout_width="45dp"
             android:layout_height="40dp"
             android:layout_marginStart="16dp"
@@ -30,7 +30,7 @@
             app:layout_constraintVertical_bias="0.736" />
 
         <TextView
-            android:id="@+id/userName"
+            android:id="@+id/userName_chat"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -38,20 +38,20 @@
             android:textColor="@color/white"
             android:textSize="@dimen/largeText"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/toolbar_image"
+            app:layout_constraintStart_toEndOf="@+id/toolbar_chat_image"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="@string/profile_name" />
 
         <TextView
-            android:id="@+id/settings_status"
+            android:id="@+id/settings_status_chat"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:textColor="@color/white"
             android:textSize="@dimen/Size10"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/toolbar_image"
-            app:layout_constraintTop_toBottomOf="@id/userName"
+            app:layout_constraintStart_toEndOf="@id/toolbar_chat_image"
+            app:layout_constraintTop_toBottomOf="@id/userName_chat"
             tools:text="@string/profile_status" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
