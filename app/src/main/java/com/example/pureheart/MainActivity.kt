@@ -66,6 +66,7 @@ class MainActivity : AppCompatActivity() {
         )
 
 
+
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
@@ -74,6 +75,7 @@ class MainActivity : AppCompatActivity() {
         navView.menu.findItem(R.id.nav_logout).setOnMenuItemClickListener { item ->
             when (item.itemId) {
                 R.id.nav_logout -> {
+                    AppStates.updateState(AppStates.OFFLINE)
                     AUTH.signOut()
                     replaceActivity(RegisterActivity())
                     true
@@ -82,7 +84,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
 
 
     private fun initUser() {

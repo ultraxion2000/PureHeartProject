@@ -65,10 +65,13 @@ class VolonteerFragment : Fragment() {
 
                     val contact = it.getCommonModel()
 
-                    holder.name.text = contact.fullname
+                    if(contact.fullname.isEmpty()){
+                        holder.name.text = model.fullname
+                    }else holder.name.text = contact.fullname
+
                     holder.status.text = contact.state
                     holder.photo.donwloadAndSetImage(contact.photoUrl)
-                    holder.itemView.setOnClickListener{replaceFragment(SingleChatFragment(contact))}
+                    holder.itemView.setOnClickListener{replaceFragment(SingleChatFragment(model))}
                 }
 
                 mRefUsers.addValueEventListener(mRefUsersListener)

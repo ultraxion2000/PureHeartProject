@@ -57,6 +57,7 @@
             android:id="@+id/chat_received_message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="5dp"
             android:gravity="end"
             android:padding="@dimen/appPadding"

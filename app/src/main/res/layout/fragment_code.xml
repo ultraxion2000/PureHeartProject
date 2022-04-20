@@ -31,7 +31,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/register_img"
+        app:layout_constraintTop_toBottomOf="@id/userStatus"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -39,14 +39,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/activity_vertical_margin"
+        android:layout_marginTop="4dp"
         android:text="Волонтер"
         android:textColor="@color/black"
+        android:gravity="center"
         android:textSize="@dimen/activity_horizontal_margin"
-
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/register_text_enter_code"
+        app:layout_constraintTop_toBottomOf="@id/register_img"
         tools:ignore="MissingConstraints" />
+
     <EditText
         android:id="@+id/input_code"
         style="@style/editText"
@@ -57,7 +60,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userStatus" />
+        app:layout_constraintTop_toBottomOf="@+id/register_text_enter_code" />
 
 
 

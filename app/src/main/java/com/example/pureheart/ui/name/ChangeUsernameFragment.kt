@@ -62,7 +62,6 @@ class ChangeUsernameFragment : Fragment() {
                         changeUsername()
                     }
                 })
-            changeUsername()
         }
     }
 

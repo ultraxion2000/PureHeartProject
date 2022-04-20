@@ -9,4 +9,9 @@ data class CommonModel(
     var phone: String = "",
     var photoUrl: String = "empty",
     var code: String = "---",
+
+    var text:String = "",
+    var type:String ="",
+    var from:String = "",
+    var timeStamp:String = ""
 )
