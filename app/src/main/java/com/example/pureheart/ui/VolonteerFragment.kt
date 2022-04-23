@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.pureheart.R
 import com.example.pureheart.databinding.FragmentVolonteerBinding
 import com.example.pureheart.models.CommonModel
+import com.example.pureheart.ui.single_chat.SingleChatFragment
 import com.example.pureheart.utilits.*
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
@@ -108,6 +109,7 @@ class VolonteerFragment : Fragment() {
             it.key.removeEventListener(it.value)
         }
     }
+
 }
 
 
