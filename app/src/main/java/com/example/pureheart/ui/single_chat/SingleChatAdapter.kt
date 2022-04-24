@@ -6,12 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pureheart.R
 import com.example.pureheart.databinding.FragmentSingleChatBinding
 import com.example.pureheart.databinding.MassageItemBinding
 import com.example.pureheart.models.CommonModel
 import com.example.pureheart.utilits.CURRENT_UID
+import com.example.pureheart.utilits.DIFUTILCALLBACK
 import com.example.pureheart.utilits.asTime
 import kotlinx.android.synthetic.main.massage_item.view.*
 import java.text.SimpleDateFormat
@@ -21,6 +23,7 @@ import java.util.*
 class SingleChatAdapter : RecyclerView.Adapter<SingleChatAdapter.SingleChatHolder>() {
 
     private var listMessagesCache = emptyList<CommonModel>()
+    private lateinit var mDiffResult: DiffUtil.DiffResult
 
     class SingleChatHolder(view: View) : RecyclerView.ViewHolder(view) {
         val blocUserMessage: ConstraintLayout = view.block_user_message
@@ -56,11 +59,20 @@ class SingleChatAdapter : RecyclerView.Adapter<SingleChatAdapter.SingleChatHolde
 
     override fun getItemCount(): Int = listMessagesCache.size
 
-    @SuppressLint("NotifyDataSetChanged")
+
     fun setList(list: List<CommonModel>) {
+        mDiffResult.dispatchUpdatesTo(this)
         listMessagesCache = list
-        notifyDataSetChanged()
     }
+    fun addItem(item:CommonModel){
+        val newList = mutableListOf<CommonModel>()
+        newList.addAll(listMessagesCache)
+        newList.add(item)
+        mDiffResult = DiffUtil.calculateDiff(DIFUTILCALLBACK(listMessagesCache, newList))
+        mDiffResult.dispatchUpdatesTo(this)
+        listMessagesCache = newList
+    }
+
 }
 
 

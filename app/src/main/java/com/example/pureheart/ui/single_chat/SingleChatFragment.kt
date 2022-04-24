@@ -8,6 +8,9 @@ import com.example.pureheart.databinding.FragmentSingleChatBinding
 import com.example.pureheart.models.CommonModel
 import com.example.pureheart.models.User
 import com.example.pureheart.utilits.*
+import com.google.firebase.database.ChildEventListener
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import kotlinx.android.synthetic.main.fragment_single_chat.*
 
@@ -24,8 +27,8 @@ class SingleChatFragment(private val contact: CommonModel) : Fragment() {
     private lateinit var mRefMessages: DatabaseReference
     private lateinit var mAdapter: SingleChatAdapter
     private lateinit var mRecyclerView: RecyclerView
-    private lateinit var mMessagesListener: AppValueEventListener
-    private var mListMessages = emptyList<CommonModel>()
+    private lateinit var mMessagesListener: ChildEventListener
+    private var mListMessages = mutableListOf<CommonModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -61,16 +64,18 @@ class SingleChatFragment(private val contact: CommonModel) : Fragment() {
     private fun initRecycleView() {
         mRecyclerView = binding.chatRecycleView
         mAdapter = SingleChatAdapter()
-        mRefMessages = REF_DATABASE_ROOT.child(NODE_MESSAGES)
+        mRefMessages = REF_DATABASE_ROOT
+            .child(NODE_MESSAGES)
             .child(CURRENT_UID)
             .child(contact.id)
         mRecyclerView.adapter = mAdapter
-        mMessagesListener = AppValueEventListener { dataSnapshot ->
-            mListMessages = dataSnapshot.children.map { it.getCommonModel() }
-            mAdapter.setList(mListMessages)
-            mRecyclerView.smoothScrollToPosition(mAdapter.itemCount)
-        }
-        mRefMessages.addValueEventListener(mMessagesListener)
+
+       mMessagesListener = AppChildEventListener{
+           mAdapter.addItem(it.getCommonModel())
+           mRecyclerView.smoothScrollToPosition(mAdapter.itemCount)
+       }
+
+        mRefMessages.addChildEventListener(mMessagesListener)
     }
 
 

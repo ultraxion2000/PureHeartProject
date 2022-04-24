@@ -23,7 +23,7 @@
             android:title="Волонтеры" />
 
         </group>
-    <item android:title="Configuration">
+    <item android:title="Сменить пользователя ?">
         <menu>
             <item
                 android:id="@+id/nav_logout"
