@@ -45,6 +45,7 @@ class ChangeUsernameFragment : Fragment() {
 
         when (item.itemId) {
             R.id.settings_confirm_change -> change()
+            R.id.settings_confirm_back -> changeB()
         }
         return true
     }
@@ -64,6 +65,10 @@ class ChangeUsernameFragment : Fragment() {
                 })
         }
     }
+    private fun changeB() {
+        fragmentManager?.popBackStack()
+    }
+
 
     private fun changeUsername() {
         REF_DATABASE_ROOT.child(NODE_USERNAMES).child(mNewUsername).setValue(CURRENT_UID)

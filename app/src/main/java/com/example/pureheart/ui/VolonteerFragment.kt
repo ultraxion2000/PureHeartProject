@@ -1,12 +1,11 @@
 package com.example.pureheart.ui
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.pureheart.MainActivity
 import com.example.pureheart.R
 import com.example.pureheart.databinding.FragmentVolonteerBinding
 import com.example.pureheart.models.CommonModel
@@ -39,6 +38,7 @@ class VolonteerFragment : Fragment() {
         initRecycleView()
         return root
     }
+
 
     private fun initRecycleView() {
         mRecycleView = binding.volonteerRecycleView

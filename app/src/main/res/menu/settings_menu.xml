@@ -4,7 +4,16 @@
     <item
         android:title=""
         app:showAsAction = "ifRoom"
+        android:id="@+id/settings_confirm_back"
+        android:icon="@drawable/ic_baseline_arrow_back_24">
+    </item>
+
+    <item
+        android:title=""
+        app:showAsAction = "ifRoom"
         android:id="@+id/settings_confirm_change"
         android:icon="@drawable/ic_baseline_check_24">
     </item>
+
+
 </menu>

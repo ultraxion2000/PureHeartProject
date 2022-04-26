@@ -22,7 +22,7 @@ import java.util.*
 
 class SingleChatAdapter : RecyclerView.Adapter<SingleChatAdapter.SingleChatHolder>() {
 
-    private var listMessagesCache = emptyList<CommonModel>()
+    private var listMessagesCache = mutableListOf<CommonModel>()
     private lateinit var mDiffResult: DiffUtil.DiffResult
 
     class SingleChatHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -41,6 +41,8 @@ class SingleChatAdapter : RecyclerView.Adapter<SingleChatAdapter.SingleChatHolde
         return SingleChatHolder(view)
     }
 
+    override fun getItemCount(): Int = listMessagesCache.size
+
     override fun onBindViewHolder(holder: SingleChatHolder, position: Int) {
         if (listMessagesCache[position].from == CURRENT_UID) {
             holder.blocUserMessage.visibility = View.VISIBLE
@@ -48,7 +50,7 @@ class SingleChatAdapter : RecyclerView.Adapter<SingleChatAdapter.SingleChatHolde
             holder.chatUserMassage.text = listMessagesCache[position].text
             holder.chatUserTime.text =
                 listMessagesCache[position].timeStamp.toString().asTime()
-        }else{
+        } else {
             holder.blocUserMessage.visibility = View.GONE
             holder.blocReceivedMessage.visibility = View.VISIBLE
             holder.chatReceivedMessage.text = listMessagesCache[position].text
@@ -57,21 +59,23 @@ class SingleChatAdapter : RecyclerView.Adapter<SingleChatAdapter.SingleChatHolde
         }
     }
 
-    override fun getItemCount(): Int = listMessagesCache.size
-
-
-    fun setList(list: List<CommonModel>) {
-        mDiffResult.dispatchUpdatesTo(this)
-        listMessagesCache = list
+    fun addItemToBottom(item: CommonModel, onSuccess: () -> Unit) {
+        if (!listMessagesCache.contains(item)) {
+            listMessagesCache.add(item)
+            notifyItemInserted(listMessagesCache.size)
+        }
+        onSuccess()
     }
-    fun addItem(item:CommonModel){
-        val newList = mutableListOf<CommonModel>()
-        newList.addAll(listMessagesCache)
-        newList.add(item)
-        mDiffResult = DiffUtil.calculateDiff(DIFUTILCALLBACK(listMessagesCache, newList))
-        mDiffResult.dispatchUpdatesTo(this)
-        listMessagesCache = newList
+
+    fun addItemToTop(item: CommonModel, onSuccess: () -> Unit) {
+        if (!listMessagesCache.contains(item)) {
+            listMessagesCache.add(item)
+            listMessagesCache.sortBy { it.timeStamp.toString() }
+            notifyItemInserted(0)
+        }
+        onSuccess()
     }
+
 
 }
 

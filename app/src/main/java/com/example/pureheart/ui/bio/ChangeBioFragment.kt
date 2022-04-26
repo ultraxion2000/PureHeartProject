@@ -40,6 +40,7 @@ class ChangeBioFragment : Fragment() {
 
         when (item.itemId) {
             R.id.settings_confirm_change -> change()
+            R.id.settings_confirm_back -> changeB()
         }
         return true
     }
@@ -55,5 +56,7 @@ class ChangeBioFragment : Fragment() {
                 }
             }
     }
-
+    private fun changeB() {
+        fragmentManager?.popBackStack()
+    }
 }

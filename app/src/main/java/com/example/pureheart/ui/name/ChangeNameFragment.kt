@@ -51,6 +51,7 @@ class ChangeNameFragment : Fragment() {
 
         when (item.itemId) {
             R.id.settings_confirm_change -> changeName()
+            R.id.settings_confirm_back -> changeB()
         }
         return true
     }
@@ -74,5 +75,8 @@ class ChangeNameFragment : Fragment() {
                 }
         }
 
+    }
+    private fun changeB() {
+        fragmentManager?.popBackStack()
     }
 }
