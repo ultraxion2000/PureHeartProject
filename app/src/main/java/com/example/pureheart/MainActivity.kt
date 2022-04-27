@@ -19,6 +19,8 @@ import com.example.pureheart.utilits.*
 import com.google.android.material.navigation.NavigationView
 import com.squareup.picasso.Picasso
 import com.theartofdev.edmodo.cropper.CropImage
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -51,6 +53,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         initUser()
+
         setSupportActionBar(binding.appBarMain.toolbar)
 
 
@@ -61,7 +64,7 @@ class MainActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_profile, R.id.nav_help,R.id.nav_vol
+                R.id.nav_home, R.id.nav_profile, R.id.nav_help, R.id.nav_vol
             ), drawerLayout
         )
 
@@ -84,6 +87,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
 
 
     private fun initUser() {

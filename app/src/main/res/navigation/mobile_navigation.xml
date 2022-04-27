@@ -32,4 +32,19 @@
         android:name="com.example.pureheart.ui.VolonteerFragment"
         android:label="@string/menu_vol"
         tools:layout="@layout/fragment_volonteer" />
+    <fragment
+        android:id="@+id/nav_chat"
+        android:name="com.example.pureheart.ui.single_chat.SingleChatFragment"
+        android:label="fragment_single_chat"
+        tools:layout="@layout/fragment_single_chat" />
+    <fragment
+        android:id="@+id/changeBioFragment"
+        android:name="com.example.pureheart.ui.bio.ChangeBioFragment"
+        android:label="fragment_change_bio"
+        tools:layout="@layout/fragment_change_bio" />
+    <fragment
+        android:id="@+id/changeUsernameFragment"
+        android:name="com.example.pureheart.ui.name.ChangeUsernameFragment"
+        android:label="fragment_change_username"
+        tools:layout="@layout/fragment_change_username" />
 </navigation>

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.TextView
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pureheart.MainActivity
 import com.example.pureheart.R
@@ -15,6 +16,8 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.database.DatabaseReference
 import de.hdodenhof.circleimageview.CircleImageView
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.app_bar_main.*
 
 
 class VolonteerFragment : Fragment() {
@@ -35,6 +38,7 @@ class VolonteerFragment : Fragment() {
         _binding = FragmentVolonteerBinding.inflate(inflater, container, false)
         val root: View = binding.root
         showToast("Volunteer")
+
         initRecycleView()
         return root
     }

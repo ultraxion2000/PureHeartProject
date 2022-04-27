@@ -3,6 +3,7 @@ package com.example.pureheart.ui.single_chat
 import android.os.Bundle
 import android.view.*
 import android.widget.AbsListView
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,6 +20,8 @@ import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.fragment_single_chat.*
 
 
@@ -46,16 +49,42 @@ class SingleChatFragment(private val contact: CommonModel) : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        setHasOptionsMenu(true)
+
         _binding = FragmentSingleChatBinding.inflate(inflater, container, false)
         val root: View = binding.root
         showToast("Chat")
+
 
         initFields()
         initToolbar()
         initRecycleView()
 
-        binding.chatBack.setOnClickListener { fragmentManager?.popBackStack() }
+
         return root
+    }
+
+
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        (activity as MainActivity).menuInflater.inflate(com.example.pureheart.R.menu.settings_back, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when (item.itemId) {
+            com.example.pureheart.R.id.settings_confirm_back -> changeB()
+        }
+        return true
+    }
+
+    private fun changeB() {
+        fragmentManager?.popBackStack()
     }
 
     private fun initFields() {
@@ -162,5 +191,7 @@ class SingleChatFragment(private val contact: CommonModel) : Fragment() {
         mRefUser.removeEventListener(mListenerInfoToolbar)
         mRefMessages.removeEventListener(mMessagesListener)
     }
+
+
 
 }
