@@ -1,6 +1,5 @@
-package com.example.pureheart.ui.home
+package com.example.pureheart.ui.Home
 
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,7 +7,7 @@ import androidx.lifecycle.ViewModel
 class HomeViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "Нуждающиеся в помощи"
+        value = "Большое сердце, как и океан, никогда не замерзает"
 
     }
     val text: LiveData<String> = _text

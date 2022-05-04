@@ -96,8 +96,19 @@
         android:id="@+id/chat_imageView"
         android:layout_width="50dp"
         android:layout_height="0dp"
+        android:visibility="gone"
         android:padding="@dimen/appPadding"
         android:src="@drawable/ic_baseline_send_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/chat_input_message" />
+    <ImageView
+        android:id="@+id/btn_Photo"
+        android:layout_width="50dp"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:padding="@dimen/appPadding"
+        android:src="@drawable/ic_baseline_add_photo_alternate_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/chat_input_message" />

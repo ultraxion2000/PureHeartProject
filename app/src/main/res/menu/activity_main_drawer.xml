@@ -4,15 +4,20 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
-        <item
 
+        <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/speech_bubble_with_heart_icon_icons_com_68350"
-            android:title="Чаты" />
+            android:icon="@drawable/ic_baseline_pan_tool_24"
+            android:title="Домашняя страница" />
         <item
             android:id="@+id/nav_profile"
             android:icon="@drawable/ui_user_profile_avatar_person_icon_208734"
             android:title="Профиль" />
+
+        <item
+            android:id="@+id/nav_chats"
+            android:icon="@drawable/speech_bubble_with_heart_icon_icons_com_68350"
+            android:title="Чаты" />
         <item
             android:id="@+id/nav_help"
             android:icon="@drawable/lover20_41294"
