@@ -1,9 +1,9 @@
-package com.example.pureheart.ui.bio
+package com.example.pureheart.ui
 
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
-import com.example.pureheart.MainActivity
+import com.example.pureheart.activities.MainActivity
 import com.example.pureheart.R
 import com.example.pureheart.databinding.FragmentChangeBioBinding
 import com.example.pureheart.utilits.*

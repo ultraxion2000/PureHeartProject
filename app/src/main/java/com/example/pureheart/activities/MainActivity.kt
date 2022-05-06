@@ -1,9 +1,7 @@
-package com.example.pureheart
+package com.example.pureheart.activities
 
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -12,18 +10,13 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.pureheart.activities.RegisterActivity
+import com.example.pureheart.R
 import com.example.pureheart.databinding.ActivityMainBinding
 import com.example.pureheart.models.User
 import com.example.pureheart.utilits.*
 import com.google.android.material.navigation.NavigationView
-import com.squareup.picasso.Picasso
-import com.theartofdev.edmodo.cropper.CropImage
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -64,7 +57,7 @@ class MainActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                 R.id.nav_profile, R.id.nav_home, R.id.nav_help, R.id.nav_vol
+                R.id.nav_profile, R.id.nav_home, R.id.nav_help, R.id.nav_vol
             ), drawerLayout
         )
 

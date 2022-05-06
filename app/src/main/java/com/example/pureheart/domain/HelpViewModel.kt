@@ -1,13 +1,13 @@
-package com.example.pureheart.ui.Home
+package com.example.pureheart.domain
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class HomeViewModel : ViewModel() {
+class HelpViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "Большое сердце, как и океан, никогда не замерзает"
+        value = "This is help Fragment"
 
     }
     val text: LiveData<String> = _text

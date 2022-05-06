@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
-import com.example.pureheart.MainActivity
+import com.example.pureheart.activities.MainActivity
 import com.example.pureheart.R
 import com.example.pureheart.activities.RegisterActivity
 import com.example.pureheart.utilits.AUTH
@@ -12,7 +12,6 @@ import com.example.pureheart.utilits.replaceActivity
 import com.example.pureheart.utilits.replaceFragment
 import com.example.pureheart.utilits.showToast
 import com.google.firebase.FirebaseException
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
 import java.util.concurrent.TimeUnit

@@ -1,4 +1,4 @@
-package com.example.pureheart.ui.profile
+package com.example.pureheart.ui
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
@@ -7,16 +7,12 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.pureheart.MainActivity
+import com.example.pureheart.activities.MainActivity
 import com.example.pureheart.R
 import com.example.pureheart.databinding.FragmentProfileBinding
-import com.example.pureheart.ui.bio.ChangeBioFragment
-import com.example.pureheart.ui.code.CodeFragment
-import com.example.pureheart.ui.name.ChangeNameFragment
-import com.example.pureheart.ui.name.ChangeUsernameFragment
+import com.example.pureheart.domain.ProfileViewModel
 import com.example.pureheart.utilits.*
 import com.google.firebase.storage.StorageReference
-import com.squareup.picasso.Picasso
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
 
@@ -60,7 +56,7 @@ class ProfileFragment : Fragment() {
         binding.profileBtnLogin.setOnClickListener { replaceFragment(ChangeUsernameFragment()) }
         binding.profileBtnBio.setOnClickListener { replaceFragment(ChangeBioFragment()) }
         binding.profilePhoto.setOnClickListener { changePhotoUser() }
-        binding.profileImage.donwloadAndSetImage(USER.photoUrl)
+        binding.profileImage.downloadAndSetImage(USER.photoUrl)
 
     }
 
@@ -101,7 +97,7 @@ class ProfileFragment : Fragment() {
           putImageToStorage(uri, path){
               getUrlFromStorage(path){
                   putUrlToDatabase(it){
-                    binding.profileImage.donwloadAndSetImage(it)
+                    binding.profileImage.downloadAndSetImage(it)
                           showToast("Данные обновлены")
                           USER.photoUrl = it
                   }

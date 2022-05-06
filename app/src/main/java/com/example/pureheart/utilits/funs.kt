@@ -38,7 +38,7 @@ fun Fragment.replaceFragment(fragment: Fragment) {
         )?.commit()
 }
 
-fun CircleImageView.donwloadAndSetImage(url: String) {
+fun CircleImageView.downloadAndSetImage(url: String) {
     Picasso.get()
         .load(url)
         .placeholder(R.drawable.user_person_customer_man_1532)

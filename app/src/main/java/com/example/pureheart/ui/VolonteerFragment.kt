@@ -4,9 +4,7 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.TextView
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.RecyclerView
-import com.example.pureheart.MainActivity
 import com.example.pureheart.R
 import com.example.pureheart.databinding.FragmentVolonteerBinding
 import com.example.pureheart.models.CommonModel
@@ -16,14 +14,12 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.database.DatabaseReference
 import de.hdodenhof.circleimageview.CircleImageView
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.app_bar_main.*
 
 
 class VolonteerFragment : Fragment() {
 
     private lateinit var mRecycleView: RecyclerView
-    private lateinit var mAdapter:FirebaseRecyclerAdapter<CommonModel,ContactsHolder>
+    private lateinit var mAdapter:FirebaseRecyclerAdapter<CommonModel, ContactsHolder>
     private lateinit var mRefContacts:DatabaseReference
     private lateinit var mRefUsers:DatabaseReference
     private lateinit var mRefUsersListener: AppValueEventListener
@@ -52,7 +48,7 @@ class VolonteerFragment : Fragment() {
             .setQuery(mRefContacts, CommonModel::class.java)
             .build()
 
-        mAdapter = object:FirebaseRecyclerAdapter<CommonModel,ContactsHolder>(options){
+        mAdapter = object:FirebaseRecyclerAdapter<CommonModel, ContactsHolder>(options){
 
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactsHolder {
                val view = LayoutInflater.from(parent.context).inflate(R.layout.volonteer_item,parent,false)
@@ -75,7 +71,7 @@ class VolonteerFragment : Fragment() {
                     }else holder.name.text = contact.fullname
 
                     holder.status.text = contact.state
-                    holder.photo.donwloadAndSetImage(contact.photoUrl)
+                    holder.photo.downloadAndSetImage(contact.photoUrl)
                     holder.itemView.setOnClickListener{replaceFragment(SingleChatFragment(model))}
                 }
 

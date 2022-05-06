@@ -1,9 +1,8 @@
 package com.example.pureheart.ui.register
 
 import android.widget.EditText
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.pureheart.MainActivity
+import com.example.pureheart.activities.MainActivity
 import com.example.pureheart.R
 import com.example.pureheart.activities.RegisterActivity
 import com.example.pureheart.utilits.*

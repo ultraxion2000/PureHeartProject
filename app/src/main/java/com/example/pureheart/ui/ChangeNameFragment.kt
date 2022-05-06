@@ -1,10 +1,9 @@
-package com.example.pureheart.ui.name
+package com.example.pureheart.ui
 
 import android.os.Bundle
 import android.view.*
-import android.widget.EditText
 import androidx.fragment.app.Fragment
-import com.example.pureheart.MainActivity
+import com.example.pureheart.activities.MainActivity
 import com.example.pureheart.R
 import com.example.pureheart.databinding.FragmentChangeNameBinding
 import com.example.pureheart.utilits.*

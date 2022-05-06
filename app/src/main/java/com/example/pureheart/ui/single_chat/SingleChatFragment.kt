@@ -6,29 +6,19 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import android.widget.AbsListView
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.example.pureheart.MainActivity
+import com.example.pureheart.activities.MainActivity
 import com.example.pureheart.databinding.FragmentSingleChatBinding
 import com.example.pureheart.models.CommonModel
 import com.example.pureheart.models.User
-import com.example.pureheart.ui.VolonteerFragment
-import com.example.pureheart.ui.name.ChangeUsernameFragment
 import com.example.pureheart.utilits.*
-import com.google.android.gms.safetynet.R
 import com.google.firebase.database.ChildEventListener
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.storage.StorageReference
 import com.theartofdev.edmodo.cropper.CropImage
-import com.theartofdev.edmodo.cropper.CropImageView
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.app_bar_main.*
-import kotlinx.android.synthetic.main.fragment_single_chat.*
 
 
 class SingleChatFragment(private val contact: CommonModel) : Fragment() {
@@ -207,7 +197,7 @@ class SingleChatFragment(private val contact: CommonModel) : Fragment() {
             binding.userNameChat.text = contact.fullname
         } else binding.userNameChat.text = mReceivingUser.fullname
 
-        binding.toolbarChatImage.donwloadAndSetImage(mReceivingUser.photoUrl)
+        binding.toolbarChatImage.downloadAndSetImage(mReceivingUser.photoUrl)
         binding.settingsStatusChat.text = mReceivingUser.state
 
     }
@@ -229,6 +219,7 @@ class SingleChatFragment(private val contact: CommonModel) : Fragment() {
             putImageToStorage(uri, path) {
                 getUrlFromStorage(path) {
                     sendMessageAsImage(contact.id,it,messageKey)
+                    mSmoothScrollToPosition = true
                 }
             }
         }

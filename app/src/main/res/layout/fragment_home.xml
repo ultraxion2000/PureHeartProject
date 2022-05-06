@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.Home.HomeFragment" >
+    tools:context=".ui.HomeFragment" >
 
     <LinearLayout
         android:id="@+id/mainlayout"
@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="@drawable/_a28bea64fdc59_3477805915126196863271"
-        tools:context=".MainActivity">
+        tools:context=".activities.MainActivity">
     </LinearLayout>
     <TextView
         android:id="@+id/text_home"

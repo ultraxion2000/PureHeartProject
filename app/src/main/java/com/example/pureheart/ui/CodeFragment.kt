@@ -1,15 +1,11 @@
-package com.example.pureheart.ui.code
+package com.example.pureheart.ui
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.*
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.example.pureheart.MainActivity
+import com.example.pureheart.activities.MainActivity
 import com.example.pureheart.R
-import com.example.pureheart.databinding.FragmentChangeBioBinding
 import com.example.pureheart.databinding.FragmentCodeBinding
-import com.example.pureheart.ui.profile.ProfileFragment
 import com.example.pureheart.utilits.*
 
 
