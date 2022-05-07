@@ -47,4 +47,9 @@
         android:name="com.example.pureheart.ui.ChangeUsernameFragment"
         android:label="fragment_change_username"
         tools:layout="@layout/fragment_change_username" />
+    <fragment
+        android:id="@+id/nav_chats"
+        android:name="com.example.pureheart.ui.ChatsFragment"
+        android:label="@string/menu_chats"
+        tools:layout="@layout/fragment_chats" />
 </navigation>

@@ -44,6 +44,8 @@ const val TYPE_TEXT = "text"
 
 const val FOLDER_MESSAGE_IMAGE = "message_image"
 
+const val NODE_MAIN_LIST = "main_list"
+
 
 fun initFirebase() {
     AUTH = FirebaseAuth.getInstance()
@@ -151,4 +153,25 @@ fun sendMessageAsImage(receivingUserID: String, imageUrl: String, messageKey: St
     REF_DATABASE_ROOT
         .updateChildren(mapDialog)
 
+}
+
+fun saveToMainList(id: String, typeChat: String) {
+    val refUser = "$NODE_MAIN_LIST/$CURRENT_UID/$id"
+    val refReceived = "$NODE_MAIN_LIST/$id/$CURRENT_UID"
+
+    val mapUser = hashMapOf<String,Any>()
+    val mapReceived = hashMapOf<String,Any>()
+
+    mapUser[CHILD_ID] = id
+    mapUser[CHILD_TYPE] = typeChat
+
+    mapReceived[CHILD_ID] = CURRENT_UID
+    mapReceived[CHILD_TYPE] = typeChat
+
+    val commonMap = hashMapOf<String, Any>()
+    commonMap[refUser] = mapUser
+    commonMap[refReceived] = mapReceived
+
+    REF_DATABASE_ROOT.updateChildren(commonMap)
+        .addOnFailureListener {  }
 }

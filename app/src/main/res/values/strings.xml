@@ -7,10 +7,11 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings_name">Изменить имя</string>
 
+    <string name="menu_chats">Чаты</string>
     <string name="menu_vol">Волонтеры</string>
     <string name="menu_name">Изменить имя</string>
     <string name="menu_code">Введите код</string>
-    <string name="menu_home">Домашняя страница</string>
+    <string name="menu_home">PureHeart</string>
     <string name="menu_profile">Профиль</string>
     <string name="menu_help">Помощь</string>
     <string name="profile_name">User</string>
