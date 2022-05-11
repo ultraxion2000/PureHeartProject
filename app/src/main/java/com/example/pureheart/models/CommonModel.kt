@@ -1,5 +1,7 @@
 package com.example.pureheart.models
 
+import android.os.Message
+
 data class CommonModel(
     val id: String = "",
     var username: String = "",
@@ -14,7 +16,9 @@ data class CommonModel(
     var type:String ="",
     var from:String = "",
     var timeStamp:Any = "",
-    var imageUrl:String = "empty"
+    var imageUrl:String = "empty",
+
+    var lastMessage:String = ""
 
 
 ) {
