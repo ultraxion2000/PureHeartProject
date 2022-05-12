@@ -175,3 +175,19 @@ fun saveToMainList(id: String, typeChat: String) {
     REF_DATABASE_ROOT.updateChildren(commonMap)
         .addOnFailureListener {  }
 }
+
+ fun deleteChat(id: String, function: () -> Unit) {
+REF_DATABASE_ROOT.child(NODE_MAIN_LIST).child(CURRENT_UID).child(id).removeValue()
+    .addOnFailureListener {  }
+    .addOnSuccessListener { function() }
+}
+
+ fun clearChat(id: String, function: () -> Unit) {
+   REF_DATABASE_ROOT.child(NODE_MESSAGES).child(CURRENT_UID).child(id)
+       .removeValue()
+       .addOnFailureListener {  }
+       .addOnSuccessListener { REF_DATABASE_ROOT.child(NODE_MESSAGES).child(id).child(
+           CURRENT_UID).removeValue()
+           .addOnSuccessListener { function() }}
+       .addOnFailureListener {  }
+}

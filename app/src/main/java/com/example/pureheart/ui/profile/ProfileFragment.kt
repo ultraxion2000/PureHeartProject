@@ -1,4 +1,4 @@
-package com.example.pureheart.ui
+package com.example.pureheart.ui.profile
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent

@@ -10,10 +10,12 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.example.pureheart.R
 import com.example.pureheart.activities.MainActivity
 import com.example.pureheart.databinding.FragmentSingleChatBinding
 import com.example.pureheart.models.CommonModel
 import com.example.pureheart.models.User
+import com.example.pureheart.ui.main_list.MainListFragment
 import com.example.pureheart.utilits.*
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DatabaseReference
@@ -67,19 +69,29 @@ class SingleChatFragment(private val contact: CommonModel) : Fragment() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        (activity as MainActivity).menuInflater.inflate(
-            com.example.pureheart.R.menu.settings_back,
-            menu
-        )
+        (activity as MainActivity).menuInflater.inflate(R.menu.settings_back, menu)
+        (activity as MainActivity).menuInflater.inflate(R.menu.remove, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         when (item.itemId) {
-            com.example.pureheart.R.id.settings_confirm_back -> changeB()
+            R.id.settings_confirm_back -> changeB()
+            R.id.menu_clear_chat -> clearChat(contact.id){
+                showToast("Чат очищен")
+                fragmentManager?.popBackStack()
+
+            }
+            R.id.menu_delete_chat -> deleteChat(contact.id){
+                showToast("Чат удален")
+                fragmentManager?.popBackStack()
+
+            }
         }
         return true
     }
+
+
 
     private fun changeB() {
         fragmentManager?.popBackStack()

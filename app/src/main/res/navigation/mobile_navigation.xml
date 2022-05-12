@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/nav_profile"
-        android:name="com.example.pureheart.ui.ProfileFragment"
+        android:name="com.example.pureheart.ui.profile.ProfileFragment"
         android:label="@string/menu_profile"
         tools:layout="@layout/fragment_profile" />
 
@@ -24,7 +24,7 @@
         tools:layout="@layout/fragment_help" />
     <fragment
         android:id="@+id/nav_name"
-        android:name="com.example.pureheart.ui.ChangeNameFragment"
+        android:name="com.example.pureheart.ui.profile.ChangeNameFragment"
         android:label="@string/menu_name"
         tools:layout="@layout/fragment_change_name" />
     <fragment
@@ -39,12 +39,12 @@
         tools:layout="@layout/fragment_single_chat" />
     <fragment
         android:id="@+id/changeBioFragment"
-        android:name="com.example.pureheart.ui.ChangeBioFragment"
+        android:name="com.example.pureheart.ui.profile.ChangeBioFragment"
         android:label="fragment_change_bio"
         tools:layout="@layout/fragment_change_bio" />
     <fragment
         android:id="@+id/changeUsernameFragment"
-        android:name="com.example.pureheart.ui.ChangeUsernameFragment"
+        android:name="com.example.pureheart.ui.profile.ChangeUsernameFragment"
         android:label="fragment_change_username"
         tools:layout="@layout/fragment_change_username" />
     <fragment

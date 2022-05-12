@@ -1,36 +1,34 @@
-package com.example.pureheart.ui
+package com.example.pureheart.ui.profile
 
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import com.example.pureheart.activities.MainActivity
 import com.example.pureheart.R
-import com.example.pureheart.databinding.FragmentChangeBioBinding
+import com.example.pureheart.databinding.FragmentCodeBinding
 import com.example.pureheart.utilits.*
 
 
-class ChangeBioFragment : Fragment() {
+class CodeFragment : Fragment() {
 
-    private var _binding: FragmentChangeBioBinding? = null
+    private var _binding: FragmentCodeBinding? = null
 
     private val binding get() = _binding!!
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         setHasOptionsMenu(true)
 
-        _binding = FragmentChangeBioBinding.inflate(inflater, container, false)
+        _binding = FragmentCodeBinding.inflate(inflater, container, false)
 
         val root: View = binding.root
 
-        binding.settingsInputBio.setText(USER.bio)
+        binding.inputCode.setText(USER.code)
+
 
         return root
-
     }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         (activity as MainActivity).menuInflater.inflate(R.menu.settings_menu, menu)
@@ -41,22 +39,30 @@ class ChangeBioFragment : Fragment() {
         when (item.itemId) {
             R.id.settings_confirm_change -> change()
             R.id.settings_confirm_back -> changeB()
+
         }
         return true
     }
 
-    private fun change() {
-        val newBio = binding.settingsInputBio.text.toString()
-        REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID).child(CHILD_BIO).setValue(newBio)
-            .addOnCompleteListener {
-                if(it.isSuccessful){
-                    showToast("Данные обновлены")
-                    USER.bio = newBio
-                    fragmentManager?.popBackStack()
-                }
-            }
-    }
     private fun changeB() {
         fragmentManager?.popBackStack()
     }
+
+
+    private fun change() {
+        val newCode = binding.inputCode.text.toString()
+        val newStatus = binding.userStatus.text.toString()
+        REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID).child(CHILD_STATUS).setValue(newStatus)
+        REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID).child(CHILD_CODE).setValue(newCode)
+            .addOnCompleteListener {
+                if(it.isSuccessful){
+                    showToast("Данные обновлены")
+                    USER.code = newCode
+                    USER.status = newStatus
+                    fragmentManager?.popBackStack()
+                }
+            }
+
+    }
+
 }

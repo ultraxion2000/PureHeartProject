@@ -5,11 +5,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.pureheart.R
 import com.example.pureheart.databinding.FragmentMainListBinding
 import com.example.pureheart.models.CommonModel
+import com.example.pureheart.ui.single_chat.SingleChatFragment
 import com.example.pureheart.utilits.*
+import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.fragment_main_list.*
+import kotlinx.android.synthetic.main.main_list_item.view.*
 
 
 class MainListFragment : Fragment() {
@@ -24,6 +29,9 @@ class MainListFragment : Fragment() {
     private val mRefUsers = REF_DATABASE_ROOT.child(NODE_USERS)
     private val mRefMessages = REF_DATABASE_ROOT.child(NODE_MESSAGES).child(CURRENT_UID)
     private var mListItems = listOf<CommonModel>()
+
+    val listItems = mutableListOf<CommonModel>()
+
 
 
     override fun onCreateView(
@@ -54,7 +62,13 @@ class MainListFragment : Fragment() {
                     mRefMessages.child(model.id).limitToLast(1)
                         .addListenerForSingleValueEvent(AppValueEventListener{ dataSnapshot2 ->
                             val tempList = dataSnapshot2.children.map {it.getCommonModel()}
-                            newModel.lastMessage = tempList[0].text
+
+                            if(tempList.isEmpty()){
+                                newModel.lastMessage = "Чат пустой"
+                            }else{
+                                newModel.lastMessage = tempList[0].text
+                            }
+
                             if(newModel.fullname.isEmpty()){
                                 newModel.fullname = newModel.phone
                             }
@@ -65,8 +79,10 @@ class MainListFragment : Fragment() {
 
             }
         })
+
             mRecyclerView.adapter = mAdapter
     }
+
 
     override fun onResume(){
         super.onResume()
@@ -76,4 +92,5 @@ class MainListFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 }
