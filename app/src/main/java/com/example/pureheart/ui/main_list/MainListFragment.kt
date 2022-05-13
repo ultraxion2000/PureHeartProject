@@ -30,7 +30,7 @@ class MainListFragment : Fragment() {
     private val mRefMessages = REF_DATABASE_ROOT.child(NODE_MESSAGES).child(CURRENT_UID)
     private var mListItems = listOf<CommonModel>()
 
-    val listItems = mutableListOf<CommonModel>()
+
 
 
 
@@ -41,7 +41,7 @@ class MainListFragment : Fragment() {
 
         _binding = FragmentMainListBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
+        showToast("Chats")
         initRecyclerView()
 
         return root

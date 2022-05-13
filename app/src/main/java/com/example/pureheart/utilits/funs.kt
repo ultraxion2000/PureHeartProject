@@ -10,8 +10,8 @@ import de.hdodenhof.circleimageview.CircleImageView
 import java.text.SimpleDateFormat
 import java.util.*
 
-fun Fragment.showToast(message: String) {
-    Toast.makeText(this.context, message, Toast.LENGTH_SHORT).show()
+fun showToast(message: String) {
+    Toast.makeText(APP_ACTIVITY, message, Toast.LENGTH_SHORT).show()
 }
 
 fun AppCompatActivity.replaceActivity(activity: AppCompatActivity) {
@@ -20,13 +20,22 @@ fun AppCompatActivity.replaceActivity(activity: AppCompatActivity) {
     this.finish()
 }
 
-fun AppCompatActivity.replaceFragment(fragment: Fragment) {
-    supportFragmentManager.beginTransaction()
-        .addToBackStack(null)
-        .replace(
-            R.id.nav_host_fragment_content_main,
-            fragment
-        ).commit()
+fun AppCompatActivity.replaceFragment(fragment: Fragment, addStack:Boolean = true) {
+    if(addStack){
+        supportFragmentManager.beginTransaction()
+            .addToBackStack(null)
+            .replace(
+                R.id.nav_host_fragment_content_main,
+                fragment
+            ).commit()
+    }else{
+        supportFragmentManager.beginTransaction()
+            .replace(
+                R.id.nav_host_fragment_content_main,
+                fragment
+            ).commit()
+    }
+
 }
 
 fun Fragment.replaceFragment(fragment: Fragment) {

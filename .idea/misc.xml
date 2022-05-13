@@ -37,6 +37,7 @@
         <entry key="..\:/PrGit/PureHeart/app/src/main/res/menu/activity_main_drawer.xml" value="0.4" />
         <entry key="..\:/PrGit/PureHeart/app/src/main/res/menu/main.xml" value="0.25416666666666665" />
         <entry key="..\:/PrGit/PureHeart/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.26615384615384613" />
+        <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/drawable-v24/2.xml" value="0.1375" />
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/drawable/bg_receving_mes.xml" value="0.168" />
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/drawable/bg_user_mes.xml" value="0.168" />
@@ -54,9 +55,11 @@
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/drawable/side_nav_bar.xml" value="0.2703125" />
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/layout/activity_register.xml" value="0.12360688956433637" />
+        <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/layout/add_contacts_item.xml" value="0.25416666666666665" />
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/layout/app_bar_main.xml" value="0.12360688956433637" />
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/layout/content_main.xml" value="0.12360688956433637" />
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/layout/content_register.xml" value="0.176" />
+        <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/layout/fragment_add_contacts.xml" value="0.25416666666666665" />
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/layout/fragment_change_bio.xml" value="0.264" />
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/layout/fragment_change_name.xml" value="0.264" />
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/layout/fragment_change_name2.xml" value="0.16983695652173914" />
@@ -71,6 +74,7 @@
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/layout/fragment_home2.xml" value="0.22826086956521738" />
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/layout/fragment_main_adapter.xml" value="0.25416666666666665" />
+        <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/layout/fragment_main_list.xml" value="0.25416666666666665" />
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/layout/fragment_present.xml" value="0.22826086956521738" />
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/layout/fragment_profile.xml" value="0.4" />
         <entry key="..\:/PrGit/PureHeartProject/app/src/main/res/layout/fragment_single_chat.xml" value="0.264" />

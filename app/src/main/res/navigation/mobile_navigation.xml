@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/nav_help"
-        android:name="com.example.pureheart.ui.HelpFragment"
+        android:name="com.example.pureheart.ui.groups.HelpFragment"
         android:label="@string/menu_help"
         tools:layout="@layout/fragment_help" />
     <fragment
@@ -29,7 +29,7 @@
         tools:layout="@layout/fragment_change_name" />
     <fragment
         android:id="@+id/nav_vol"
-        android:name="com.example.pureheart.ui.VolonteerFragment"
+        android:name="com.example.pureheart.ui.contacts.VolonteerFragment"
         android:label="@string/menu_vol"
         tools:layout="@layout/fragment_volonteer" />
     <fragment

@@ -1,4 +1,4 @@
-package com.example.pureheart.ui
+package com.example.pureheart.ui.contacts
 
 import android.os.Bundle
 import android.view.*

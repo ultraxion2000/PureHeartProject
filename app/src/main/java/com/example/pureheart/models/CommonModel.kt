@@ -18,7 +18,8 @@ data class CommonModel(
     var timeStamp:Any = "",
     var imageUrl:String = "empty",
 
-    var lastMessage:String = ""
+    var lastMessage:String = "",
+    var choice:Boolean = false
 
 
 ) {
