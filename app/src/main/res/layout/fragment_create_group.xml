@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.groups.CreateGroupFragment">
+
+<de.hdodenhof.circleimageview.CircleImageView
+    android:id="@+id/create_group_photo"
+    android:layout_width="@dimen/profile__width"
+    android:layout_height="@dimen/profile_height"
+    android:layout_margin="16dp"
+    android:src="@drawable/love_heart_icon_178900"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+<EditText
+    android:id="@+id/create_group_input_name"
+    android:layout_width="0dp"
+    android:focusableInTouchMode="true"
+    android:layout_height="wrap_content"
+    android:textColor="@color/black"
+    app:layout_constraintStart_toEndOf="@+id/create_group_photo"
+    app:layout_constraintTop_toTopOf="@+id/create_group_photo"
+    app:layout_constraintBottom_toBottomOf="@+id/create_group_photo"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_margin="@dimen/fab_margin"
+    />
+<TextView
+    android:id="@+id/create_group_counts"
+    android:layout_width="match_parent"
+    android:text="@string/profile_ac"
+    android:layout_height="wrap_content"
+    android:textColor="@color/purple_100"
+    android:textSize="@dimen/largeText"
+    android:textStyle="bold"
+    android:layout_margin="@dimen/activity_vertical_margin"
+    app:layout_constraintTop_toBottomOf="@+id/create_group_photo"/>
+
+<Button
+    android:id="@+id/create_group_btn"
+    style="@style/Widget.MaterialComponents.Button.Icon"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:layout_margin="@dimen/activity_horizontal_margin"
+    app:backgroundTint="#CD5C5C"
+    android:background="@drawable/ic_baseline_arrow_circle_right_24"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:tint="@color/purple_500"
+    tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck"
+    />
+
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/create_group_recycle_view"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    tools:listitem="@layout/main_list_item"
+    app:layout_constraintTop_toBottomOf="@+id/create_group_counts"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

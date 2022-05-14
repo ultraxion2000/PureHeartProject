@@ -46,7 +46,7 @@ class HelpFragment : Fragment() {
 
         initRecyclerView()
         binding.addContactsBtnNext.setOnClickListener{
-          showToast("Добавлен")
+          replaceFragment(CreateGroupFragment(listContacts))
         }
         return root
     }

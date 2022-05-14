@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.*
 import android.widget.AbsListView
 import androidx.fragment.app.Fragment
+import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -21,6 +22,7 @@ import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.storage.StorageReference
 import com.theartofdev.edmodo.cropper.CropImage
+import kotlinx.android.synthetic.main.app_bar_main.*
 
 
 class SingleChatFragment(private val contact: CommonModel) : Fragment() {
@@ -94,7 +96,7 @@ class SingleChatFragment(private val contact: CommonModel) : Fragment() {
 
 
     private fun changeB() {
-        fragmentManager?.popBackStack()
+           APP_ACTIVITY.supportFragmentManager.popBackStack()
     }
 
     private fun initFields() {

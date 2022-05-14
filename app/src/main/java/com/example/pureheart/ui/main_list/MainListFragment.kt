@@ -39,6 +39,7 @@ class MainListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+
         _binding = FragmentMainListBinding.inflate(inflater, container, false)
         val root: View = binding.root
         showToast("Chats")

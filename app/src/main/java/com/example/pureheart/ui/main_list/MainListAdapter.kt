@@ -4,12 +4,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pureheart.R
 import com.example.pureheart.models.CommonModel
 import com.example.pureheart.ui.single_chat.SingleChatFragment
 import com.example.pureheart.utilits.APP_ACTIVITY
 import com.example.pureheart.utilits.downloadAndSetImage
+import com.example.pureheart.utilits.replaceFragment
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.main_list_item.view.*
 
@@ -33,20 +35,15 @@ class MainListAdapter : RecyclerView.Adapter<MainListAdapter.MainListHolder>() {
         
         val holder = MainListHolder(view)
         holder.itemView.setOnClickListener {
-            replaceFragment(SingleChatFragment(listItems[holder.adapterPosition]))
+
+            APP_ACTIVITY.replaceFragment(SingleChatFragment(listItems[holder.adapterPosition]))
+
         }
 
         return holder
     }
 
-   private fun replaceFragment(mainListFragment: SingleChatFragment) {
-            APP_ACTIVITY.supportFragmentManager.beginTransaction()
-                .addToBackStack(null)
-                .replace(
-                    R.id.nav_host_fragment_content_main,
-                    mainListFragment
-                ).commit()
-    }
+
 
 
 
