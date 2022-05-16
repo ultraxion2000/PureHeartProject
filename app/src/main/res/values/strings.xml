@@ -38,4 +38,12 @@
     <string name="Nomer">Введите идентификационный номер</string>
     <string name="Индентификация">Индентификационный код волонтера</string>
     <string name="Волонтер">Status</string>
+    
+    <plurals name="count_members">
+        <item quantity="one">%d участник</item>
+        <item quantity="few">%d участника</item>
+        <item quantity="many">%d участников</item>
+        <item quantity="other">%d участников </item>
+
+    </plurals>
 </resources>

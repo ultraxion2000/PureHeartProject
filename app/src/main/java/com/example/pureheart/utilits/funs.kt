@@ -50,7 +50,7 @@ fun Fragment.replaceFragment(fragment: Fragment) {
 fun CircleImageView.downloadAndSetImage(url: String) {
     Picasso.get()
         .load(url)
-        .placeholder(R.drawable.user_person_customer_man_1532)
+        .placeholder(R.drawable.love_heart_icon_178900)
         .into(this)
 }
 
@@ -59,3 +59,7 @@ fun String.asTime(): String {
     val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
     return timeFormat.format(time)
 }
+
+fun getPlurals(count: Int) = APP_ACTIVITY.resources.getQuantityString(
+    R.plurals.count_members,count,count
+)

@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
+import com.example.pureheart.database.getCommonModel
 import com.example.pureheart.databinding.FragmentHelpBinding
 import com.example.pureheart.domain.HelpViewModel
 import com.example.pureheart.models.CommonModel
@@ -21,7 +22,7 @@ class HelpFragment : Fragment() {
 
     private lateinit var mRecyclerView: RecyclerView
     private lateinit var mAdapter: AddContactsAdapter
-    private val mRefMainList = REF_DATABASE_ROOT.child(NODE_MAIN_LIST).child(CURRENT_UID)
+    private val mRefContactList = REF_DATABASE_ROOT.child(NODE_PHONES_CONTACTS).child(CURRENT_UID)
     private val mRefUsers = REF_DATABASE_ROOT.child(NODE_USERS)
     private val mRefMessages = REF_DATABASE_ROOT.child(NODE_MESSAGES).child(CURRENT_UID)
     private var mListItems = listOf<CommonModel>()
@@ -40,13 +41,14 @@ class HelpFragment : Fragment() {
         val root: View = binding.root
         showToast("Help")
         helpViewModel.text.observe(viewLifecycleOwner, Observer {
-
         })
 
-
+        listContacts.clear()
         initRecyclerView()
+
         binding.addContactsBtnNext.setOnClickListener{
-          replaceFragment(CreateGroupFragment(listContacts))
+            if(listContacts.isEmpty()) showToast("Добавьте участинка")
+            else replaceFragment(CreateGroupFragment(listContacts))
         }
         return root
     }
@@ -56,9 +58,10 @@ class HelpFragment : Fragment() {
         mAdapter = AddContactsAdapter()
 
         //1 запрос
-        mRefMainList.addListenerForSingleValueEvent(AppValueEventListener { dataSnapshot ->
+        mRefContactList.addListenerForSingleValueEvent(AppValueEventListener { dataSnapshot ->
             mListItems = dataSnapshot.children.map { it.getCommonModel() }
             mListItems.forEach { model ->
+
                 //2 запрос
                 mRefUsers.child(model.id)
                     .addListenerForSingleValueEvent(AppValueEventListener { dataSnapshot1 ->

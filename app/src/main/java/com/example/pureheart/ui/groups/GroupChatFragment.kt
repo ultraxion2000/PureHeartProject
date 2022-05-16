@@ -1,4 +1,4 @@
-package com.example.pureheart.ui.single_chat
+package com.example.pureheart.ui.groups
 
 import android.app.Activity
 import android.content.Intent
@@ -27,7 +27,7 @@ import com.theartofdev.edmodo.cropper.CropImage
 import kotlinx.android.synthetic.main.app_bar_main.*
 
 
-class SingleChatFragment(private val contact: CommonModel) : Fragment() {
+class GroupChatFragment(private val contact: CommonModel) : Fragment() {
 
     private var _binding: FragmentSingleChatBinding? = null
     private val binding get() = _binding!!
@@ -37,7 +37,7 @@ class SingleChatFragment(private val contact: CommonModel) : Fragment() {
     private lateinit var mRefUser: DatabaseReference
 
     private lateinit var mRefMessages: DatabaseReference
-    private lateinit var mAdapter: SingleChatAdapter
+    private lateinit var mAdapter: GroupChatAdapter
     private lateinit var mRecyclerView: RecyclerView
     private lateinit var mMessagesListener: ChildEventListener
     private var mCountMessages = 10
@@ -99,7 +99,7 @@ class SingleChatFragment(private val contact: CommonModel) : Fragment() {
 
     private fun changeB() {
            APP_ACTIVITY.supportFragmentManager.popBackStack()
-
+        APP_ACTIVITY.supportFragmentManager.popBackStack()
 
     }
 
@@ -140,10 +140,11 @@ class SingleChatFragment(private val contact: CommonModel) : Fragment() {
             val message = binding.chatInputMessage.text.toString()
             if (message.isEmpty()) {
                 showToast("Введите сообщение")
-            } else sendMessage(message, contact.id, TYPE_TEXT) {
-
-                saveToMainList(contact.id, TYPE_CHAT)
-
+            } else sendMessageGroup(
+                message,
+                contact.id,
+                TYPE_TEXT)
+            {
                 binding.chatInputMessage.setText("")
             }
         }
@@ -153,11 +154,13 @@ class SingleChatFragment(private val contact: CommonModel) : Fragment() {
 
     private fun initRecycleView() {
         mRecyclerView = binding.chatRecycleView
-        mAdapter = SingleChatAdapter()
+        mAdapter = GroupChatAdapter()
         mRefMessages = REF_DATABASE_ROOT
-            .child(NODE_MESSAGES)
-            .child(CURRENT_UID)
+            .child(NODE_GROUPS)
             .child(contact.id)
+            .child(NODE_MESSAGES)
+
+
         mRecyclerView.adapter = mAdapter
         mRecyclerView.setHasFixedSize(true)
         mRecyclerView.isNestedScrollingEnabled = false

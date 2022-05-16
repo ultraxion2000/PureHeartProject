@@ -86,6 +86,7 @@
         android:layout_height="wrap_content"
         android:hint="Сообщение"
         android:padding="@dimen/appPadding"
+        android:background="@color/white"
         android:textColor="@color/black"
         android:textColorHint="@color/ColorGrey"
         app:layout_constraintBottom_toBottomOf="parent"

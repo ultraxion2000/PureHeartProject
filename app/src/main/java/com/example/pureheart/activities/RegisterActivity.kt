@@ -2,9 +2,9 @@ package com.example.pureheart.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.pureheart.database.initFirebase
 import com.example.pureheart.databinding.ActivityRegisterBinding
 import com.example.pureheart.ui.register.EnterPhoneNumberFragment
-import com.example.pureheart.utilits.initFirebase
 import com.example.pureheart.utilits.replaceFragment
 
 class RegisterActivity : AppCompatActivity() {

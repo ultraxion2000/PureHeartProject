@@ -1,50 +1,17 @@
-package com.example.pureheart.utilits
+package com.example.pureheart.database
 
 import android.annotation.SuppressLint
+import android.net.Uri
 import android.provider.ContactsContract
 import com.example.pureheart.models.CommonModel
 import com.example.pureheart.models.User
+import com.example.pureheart.utilits.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ServerValue
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
-
-
-lateinit var AUTH: FirebaseAuth
-lateinit var CURRENT_UID: String
-lateinit var REF_DATABASE_ROOT: DatabaseReference
-lateinit var REF_STORAGE_ROOT: StorageReference
-lateinit var USER: User
-
-const val NODE_USERS = "users"
-const val NODE_USERNAMES = "usernames"
-const val NODE_PHONES = "phones"
-const val NODE_MESSAGES = "messages"
-const val FOLDER_PROFILE_IMAGE = "profile_image"
-const val NODE_PHONES_CONTACTS = "phones_contacts"
-
-const val CHILD_ID = "id"
-const val CHILD_PHONE = "phone"
-const val CHILD_USERNAME = "username"
-const val CHILD_FULLNAME = "fullname"
-const val CHILD_BIO = "bio"
-const val CHILD_PHOTO_URL = "photoUrl"
-const val CHILD_STATE = "state"
-const val CHILD_CODE = "code"
-const val CHILD_STATUS = "status"
-const val CHILD_TEXT = "text"
-const val CHILD_TYPE = "type"
-const val CHILD_FROM = "from"
-const val CHILD_TIMESTAMP = "timeStamp"
-const val CHILD_IMAGE_URL = "imageUrl"
-const val TYPE_TEXT = "text"
-
-const val FOLDER_MESSAGE_IMAGE = "message_image"
-
-const val NODE_MAIN_LIST = "main_list"
+import java.util.HashMap
 
 
 fun initFirebase() {
@@ -176,18 +143,85 @@ fun saveToMainList(id: String, typeChat: String) {
         .addOnFailureListener {  }
 }
 
- fun deleteChat(id: String, function: () -> Unit) {
-REF_DATABASE_ROOT.child(NODE_MAIN_LIST).child(CURRENT_UID).child(id).removeValue()
-    .addOnFailureListener {  }
-    .addOnSuccessListener { function() }
+fun deleteChat(id: String, function: () -> Unit) {
+    REF_DATABASE_ROOT.child(NODE_MAIN_LIST).child(CURRENT_UID).child(id).removeValue()
+        .addOnFailureListener {  }
+        .addOnSuccessListener { function() }
 }
 
- fun clearChat(id: String, function: () -> Unit) {
-   REF_DATABASE_ROOT.child(NODE_MESSAGES).child(CURRENT_UID).child(id)
-       .removeValue()
-       .addOnFailureListener {  }
-       .addOnSuccessListener { REF_DATABASE_ROOT.child(NODE_MESSAGES).child(id).child(
-           CURRENT_UID).removeValue()
-           .addOnSuccessListener { function() }}
-       .addOnFailureListener {  }
+fun clearChat(id: String, function: () -> Unit) {
+    REF_DATABASE_ROOT.child(NODE_MESSAGES).child(CURRENT_UID).child(id)
+        .removeValue()
+        .addOnFailureListener {  }
+        .addOnSuccessListener { REF_DATABASE_ROOT.child(NODE_MESSAGES).child(id).child(
+            CURRENT_UID
+        ).removeValue()
+            .addOnSuccessListener { function() }}
+        .addOnFailureListener {  }
+}
+
+fun createGroupToDatabase(
+    nameGroup: String,
+    mUri: Uri?,
+    listContacts: List<CommonModel>,
+    function: () -> Unit
+) {
+    val keyGroup = REF_DATABASE_ROOT.child(NODE_GROUPS).push().key.toString()
+    val path = REF_DATABASE_ROOT.child(NODE_GROUPS).child(keyGroup)
+
+    val mapData = hashMapOf<String,Any>()
+    mapData[CHILD_ID] = keyGroup
+    mapData[CHILD_FULLNAME] = nameGroup
+
+    val mapMembers = hashMapOf<String,Any>()
+    listContacts.forEach {
+        mapMembers[it.id] = USER_MEMBER
+    }
+    mapMembers[CURRENT_UID] = USER_CREATOR
+
+    mapData[NODE_MEMBERS] = mapMembers
+
+    path.updateChildren(mapData)
+        .addOnSuccessListener { function()
+        addGroupsToMainList(mapData,listContacts){
+            function()
+        }
+        }
+        .addOnFailureListener { showToast(it.message.toString()) }
+}
+
+fun addGroupsToMainList(
+    mapData: HashMap<String, Any>,
+    listContacts: List<CommonModel>,
+    function: () -> Unit
+) {
+    val path = REF_DATABASE_ROOT.child(NODE_MAIN_LIST)
+    val map = hashMapOf<String,Any>()
+
+    map[CHILD_ID] = mapData[CHILD_ID].toString()
+    map[CHILD_TYPE] = TYPE_GROUP
+    listContacts.forEach {
+        path.child(it.id).child(map[CHILD_ID].toString()).updateChildren(map)
+    }
+    path.child(CURRENT_UID).child(map[CHILD_ID].toString()).updateChildren(map)
+        .addOnSuccessListener { function() }
+        .addOnFailureListener { showToast(it.message.toString()) }
+}
+fun sendMessageGroup(message: String, groupID: String, typeText: String, function: () -> Unit) {
+
+    var refMessages = "$NODE_GROUPS/$groupID/$NODE_MESSAGES"
+
+    val messageKey = REF_DATABASE_ROOT.child(refMessages).push().key
+
+    val mapMessage = hashMapOf<String, Any>()
+    mapMessage[CHILD_FROM] = CURRENT_UID
+    mapMessage[CHILD_TYPE] = typeText
+    mapMessage[CHILD_TEXT] = message
+    mapMessage[CHILD_ID] = messageKey.toString()
+    mapMessage[CHILD_TIMESTAMP] = ServerValue.TIMESTAMP
+
+    REF_DATABASE_ROOT.child(refMessages).child(messageKey.toString())
+        .updateChildren(mapMessage)
+        .addOnSuccessListener { function() }
+        .addOnFailureListener { }
 }

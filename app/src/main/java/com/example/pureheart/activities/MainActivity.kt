@@ -11,6 +11,8 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.pureheart.R
+import com.example.pureheart.database.initContacts
+import com.example.pureheart.database.initFirebase
 import com.example.pureheart.databinding.ActivityMainBinding
 import com.example.pureheart.models.User
 import com.example.pureheart.utilits.*
