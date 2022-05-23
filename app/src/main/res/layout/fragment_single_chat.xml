@@ -72,9 +72,9 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/chat_recycle_view"
+            android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@color/white"
             tools:ignore="MissingConstraints"
             tools:listitem="@layout/massage_item" />
 
@@ -86,7 +86,6 @@
         android:layout_height="wrap_content"
         android:hint="Сообщение"
         android:padding="@dimen/appPadding"
-        android:background="@color/white"
         android:textColor="@color/black"
         android:textColorHint="@color/ColorGrey"
         app:layout_constraintBottom_toBottomOf="parent"

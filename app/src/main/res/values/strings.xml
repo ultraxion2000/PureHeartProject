@@ -19,8 +19,8 @@
     <string name="profile_ac">Данные</string>
     <string name="profile_numbers">+79111111111</string>
     <string name="profile_label_phone">Ваш номер телефона</string>
-    <string name="profile_user_login">User Login</string>
-    <string name="profile_name_text">Имя пользователя</string>
+    <string name="profile_user_login">Date of birth</string>
+    <string name="profile_name_text">Дата рождения</string>
     <string name="profile_bio">О себе</string>
     <string name="action_settings_edit">Выход</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -32,13 +32,13 @@
     <string name="register_title_your_phone">Ваш телефон</string>
     <string name="settings_hint_input_name">Имя</string>
     <string name="settings_hint_input_surname">Фамилия</string>
-    <string name="username">Username</string>
+    <string name="username">Д.М.Г</string>
     <string name="bio">Bio</string>
     <string name="code">Code</string>
     <string name="Nomer">Введите идентификационный номер</string>
     <string name="Индентификация">Индентификационный код волонтера</string>
     <string name="Волонтер">Status</string>
-    
+
     <plurals name="count_members">
         <item quantity="one">%d участник</item>
         <item quantity="few">%d участника</item>

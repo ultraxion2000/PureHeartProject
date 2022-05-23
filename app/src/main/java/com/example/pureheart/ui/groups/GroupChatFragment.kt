@@ -99,7 +99,6 @@ class GroupChatFragment(private val contact: CommonModel) : Fragment() {
 
     private fun changeB() {
            APP_ACTIVITY.supportFragmentManager.popBackStack()
-        APP_ACTIVITY.supportFragmentManager.popBackStack()
 
     }
 
