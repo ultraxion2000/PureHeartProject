@@ -18,6 +18,9 @@ PureHeart – мобильное приложение, которое позво
 ## Использовано:
 > * Kotlin
 > * Firebase
+> * Coroutine
+> * Picaso
+> * RecyclerView
 ### Выполнил:
 > * :octocat: Безобразов Александр
 >    * [GitHub](https://github.com/ultraxion2000)
